@@ -13,16 +13,6 @@ class frontendConfiguration extends sfApplicationConfiguration
     }
 
     /**
-     * Init
-     *
-     * Все конфиги инициализированы, автозагрузка подключена
-     * Фабрики НЕ инициализированы
-     */
-    public function initialize()
-    {
-    }
-
-    /**
      * Инициализировать плагины
      *
      * @see ProjectConfiguration::setup
