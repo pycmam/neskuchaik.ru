@@ -1,0 +1,18 @@
+[submodule "lib/vendor/symfony"]
+	path = lib/vendor/symfony
+	url = git://github.com/pycmam/symfony.git
+[submodule "plugins/sfPhpunitPlugin"]
+	path = plugins/sfPhpunitPlugin
+	url = git://github.com/maxim-oleinik/sfPhpunitPlugin.git
+[submodule "plugins/sfReplicaThumbnailPlugin"]
+	path = plugins/sfReplicaThumbnailPlugin
+	url = git://github.com/maxim-oleinik/sfReplicaThumbnailPlugin.git
+[submodule "plugins/sfSimpleGoogleSitemapPlugin"]
+	path = plugins/sfSimpleGoogleSitemapPlugin
+	url = git://github.com/pycmam/sfSimpleGoogleSitemapPlugin.git
+[submodule "plugins/sfRichMenuPlugin"]
+	path = plugins/sfRichMenuPlugin
+	url = git://github.com/pycmam/sfRichMenuPlugin.git
+[submodule "plugins/sfDoctrineGuardPlugin"]
+	path = plugins/sfDoctrineGuardPlugin
+	url = git@github.com:pycmam/sfDoctrineGuardPlugin.git

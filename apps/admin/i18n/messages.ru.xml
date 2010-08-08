@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xliff PUBLIC "-//XLIFF//DTD XLIFF//EN" "http://www.oasis-open.org/committees/xliff/documents/xliff.dtd">
+<xliff version="1.0">
+  <file source-language="EN" target-language="ru" datatype="plaintext" original="messages" date="2009-06-14T22:42:09Z" product-name="messages">
+    <header/>
+    <body>
+      <trans-unit>
+        <source>Ru</source>
+        <target>По-русски</target>
+      </trans-unit>
+      <trans-unit>
+        <source>En</source>
+        <target>По-английски</target>
+      </trans-unit>
+
+      <trans-unit>
+        <source>en</source>
+        <target>Английский</target>
+      </trans-unit>
+      <trans-unit>
+        <source>ru</source>
+        <target>Русский</target>
+      </trans-unit>
+
+      <trans-unit>
+        <source>sale</source>
+        <target>Продажа</target>
+      </trans-unit>
+      <trans-unit>
+        <source>rent</source>
+        <target>Аренда</target>
+      </trans-unit>
+      
+
+      <trans-unit>
+        <source>Name</source>
+        <target>Название</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Description</source>
+        <target>Описание</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Created at</source>
+        <target>Создано</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Updated at</source>
+        <target>Обновлено</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Is published</source>
+        <target>Опубликовано?</target>
+      </trans-unit>
+
+      <!-- Базовые ошибки валидации -->
+      <trans-unit>
+        <source>Required.</source>
+        <target>Обязательное поле</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Invalid.</source>
+        <target>Ошибка</target>
+      </trans-unit>
+      <trans-unit>
+        <source>The date cannot be in the past</source>
+        <target>Дата не может быть в прошлом</target>
+      </trans-unit>
+      <trans-unit>
+        <source>The start date must be prior to the end date</source>
+        <target>Дата начала должна быть больше даты окончания</target>
+      </trans-unit>
+      <trans-unit>
+        <source>"%value%" is not a number.</source>
+        <target>Это не число</target>
+      </trans-unit>
+
+      <trans-unit>
+        <source>Save</source>
+        <target>Сохранить</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Back to list</source>
+        <target>Назад к списку</target>
+      </trans-unit>
+      <trans-unit>
+        <source>edit</source>
+        <target>Редактирование</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Show</source>
+        <target>Просмотр</target>
+      </trans-unit>
+      <trans-unit>
+        <source>new</source>
+        <target>Создать</target>
+      </trans-unit>
+      <trans-unit>
+        <source>yes or no</source>
+        <target>да или нет</target>
+      </trans-unit>
+      <trans-unit>
+        <source>yes</source>
+        <target>да</target>
+      </trans-unit>
+      <trans-unit>
+        <source>no</source>
+        <target>нет</target>
+      </trans-unit>
+      <trans-unit>
+        <source>is empty</source>
+        <target>пустое?</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Permissions and groups</source>
+        <target>Права и группы</target>
+      </trans-unit>
+      <trans-unit>
+        <source>sfGuardUser</source>
+        <target>Пользователи</target>
+      </trans-unit>
+      <trans-unit>
+        <source>sfGuardGroup</source>
+        <target>Группы</target>
+      </trans-unit>
+      <trans-unit>
+        <source>sfGuardPermission</source>
+        <target>Права</target>
+      </trans-unit>
+
+      <trans-unit>
+        <source>sfGuardUser</source>
+        <target>Пользователи</target>
+      </trans-unit>
+      <trans-unit>
+        <source>sfGuardGroup</source>
+        <target>Группы</target>
+      </trans-unit>
+      <trans-unit>
+        <source>sfGuardPermission</source>
+        <target>Привилегии</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,24 @@
+test:
+  mail:
+    save_dir:     cache/tmp/test/mail
+    template_dir: test/fixtures/mail
+
+dev:
+  host:
+    script_name: /dev.php
+
+all:
+  thumbnail:
+    dir: /uploads/thumbnails
+    types:
+      # превьюшки
+      thumb:
+        default: /images/default/nophoto32x32.png
+        mimetype: image/jpeg
+        macro:
+          Replica_Macro_ThumbnailFixed: [32, 32, center, center]
+
+  host:
+    script_name: false
+    admin:       "admin.%s"
+    frontend:    "%s"

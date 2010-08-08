@@ -1,0 +1,17 @@
+
+/web/uploads
+/cache
+/log
+/data/sql
+/data/*.lck
+/lib/model/doctrine/base
+/lib/model/doctrine/*/base
+/lib/form/doctrine/base
+/lib/form/doctrine/*/base
+/lib/filter/doctrine/base
+/lib/filter/doctrine/*/base
+
+# eclipse trash
+.buildpath
+.project
+.settings/

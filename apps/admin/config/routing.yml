@@ -1,0 +1,30 @@
+# Пользователи
+# =============================================================================
+sfGuardUser:
+  url: /sf_guard_user
+  params: { module: sfGuardUser, action: index }
+
+# Группы
+# =============================================================================
+sfGuardGroup:
+  url: /sf_guard_group
+  params: { module: sfGuardGroup, action: index }
+
+# Привилегии
+# =============================================================================
+sfGuardPermission:
+  url: /sf_guard_permission
+  params: { module: sfGuardPermission, action: index }
+
+# Главная
+# =============================================================================
+homepage:
+  url:   /
+  param: { module: default, action: index }
+
+default_index:
+  url:   /:module
+  param: { action: index }
+
+default:
+  url:   /:module/:action/*

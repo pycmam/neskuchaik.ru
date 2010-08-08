@@ -1,0 +1,17 @@
+default:
+  http_metas:
+    content-type: text/html
+
+  metas:
+    title:        Панель управления
+
+  stylesheets:
+    - /csDoctrineActAsSortablePlugin/css/sortable.css
+    - /myImageUploadPlugin/css/gallery.css
+    - admin.css
+
+  javascripts:
+    - /sfJqueryReloadedPlugin/js/jquery-1.3.2.min.js
+
+  has_layout:     true
+  layout:         layout

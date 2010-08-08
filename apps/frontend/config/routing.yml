@@ -1,0 +1,7 @@
+# Главная
+# ====================================================
+homepage:
+  url:   /
+  params:  { module: default, action: index }
+  requirements:
+    sf_method: get

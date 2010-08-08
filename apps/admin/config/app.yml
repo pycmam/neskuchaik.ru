@@ -1,0 +1,6 @@
+all:
+  sf_guard_plugin:
+    routes_register:             true
+    remember_key_expiration_age: 2592000   # 30 days in seconds
+    remember_cookie_name:        me
+    algorithm_callable:          md5

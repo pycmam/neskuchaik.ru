@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xliff PUBLIC "-//XLIFF//DTD XLIFF//EN" "http://www.oasis-open.org/committees/xliff/documents/xliff.dtd">
+<xliff version="1.0">
+  <file source-language="EN" target-language="ru" datatype="plaintext" original="messages" date="2009-06-14T22:42:09Z" product-name="messages">
+    <header/>
+    <body>
+      <trans-unit>
+        <source>Choose an action</source>
+        <target>Выберите действие</target>
+      </trans-unit>
+      <trans-unit>
+        <source>go</source>
+        <target>Выполнить</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
