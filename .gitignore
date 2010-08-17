@@ -1,4 +1,6 @@
-
+/config/databases.yml
+/config/properties.ini
+/config/rsync_exclude.txt
 /web/uploads
 /cache
 /log
