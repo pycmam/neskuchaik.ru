@@ -9,10 +9,16 @@
 	url = git://github.com/maxim-oleinik/sfReplicaThumbnailPlugin.git
 [submodule "plugins/sfSimpleGoogleSitemapPlugin"]
 	path = plugins/sfSimpleGoogleSitemapPlugin
-	url = git://github.com/pycmam/sfSimpleGoogleSitemapPlugin.git
+	url = git@github.com:pycmam/sfSimpleGoogleSitemapPlugin.git
 [submodule "plugins/sfRichMenuPlugin"]
 	path = plugins/sfRichMenuPlugin
 	url = git://github.com/pycmam/sfRichMenuPlugin.git
 [submodule "plugins/sfDoctrineGuardPlugin"]
 	path = plugins/sfDoctrineGuardPlugin
 	url = git@github.com:pycmam/sfDoctrineGuardPlugin.git
+[submodule "plugins/npAssetsOptimizerPlugin"]
+	path = plugins/npAssetsOptimizerPlugin
+	url = git@github.com:pycmam/npAssetsOptimizerPlugin.git
+[submodule "plugins/myContentPlugin"]
+	path = plugins/myContentPlugin
+	url = git@github.com:pycmam/myContentPlugin.git

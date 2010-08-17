@@ -3,8 +3,8 @@ default:
     content-type: text/html
 
   metas:
-    #title:
-    #description:
+    title: Нескучайк!
+    description:
 
   stylesheets:
     - main.css
