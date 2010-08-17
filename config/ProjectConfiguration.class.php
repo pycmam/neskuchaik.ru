@@ -8,6 +8,8 @@ define('DIR', realpath(dirname(__FILE__).'/..'));
 require_once DIR . '/lib/vendor/symfony/lib/autoload/sfCoreAutoload.class.php';
 sfCoreAutoload::register();
 
+require_once DIR . '/lib/config/sfDomainConfigHandler.class.php';
+
 /**
  * ProjectConfiguration
  */
@@ -30,6 +32,7 @@ class ProjectConfiguration extends sfProjectConfiguration
         sfOutputEscaper::markClassesAsSafe(array(
             // some safe classes
         ));
+    $this->enablePlugins('sfDoctrineGuardPlugin');
   }
 
 

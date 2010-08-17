@@ -1,4 +1,48 @@
-# Пользователи
+# Пользователи сайта
+# =============================================================================
+user:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                User
+    module:               user
+    prefix_path:          /user
+    column:               id
+    with_wildcard_routes: true
+
+# События
+# =============================================================================
+event:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Event
+    module:               event
+    prefix_path:          /event
+    column:               id
+    with_wildcard_routes: true
+
+# Места
+# =============================================================================
+place:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Place
+    module:               place
+    prefix_path:          /place
+    column:               id
+    with_wildcard_routes: true
+
+# Контент
+# =============================================================================
+myContentAdmin:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                myContent
+    module:               myContentAdmin
+    prefix_path:          /myContentAdmin
+    column:               id
+    with_wildcard_routes: true
+
+# Администраторы
 # =============================================================================
 sfGuardUser:
   url: /sf_guard_user
@@ -20,7 +64,7 @@ sfGuardPermission:
 # =============================================================================
 homepage:
   url:   /
-  param: { module: default, action: index }
+  param: { module: sfAdminDash, action: dashboard }
 
 default_index:
   url:   /:module

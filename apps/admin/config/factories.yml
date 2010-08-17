@@ -44,12 +44,6 @@ all:
       delivery_strategy: realtime
       transport:
         class: Swift_MailTransport
-
-  storage:
-    class: myImageUploadSessionStorage
-    param:
-      session_name: realtys
-
 #all:
 #  controller:
 #    class: sfFrontWebController

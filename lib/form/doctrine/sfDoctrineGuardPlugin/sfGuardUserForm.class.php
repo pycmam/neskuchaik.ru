@@ -10,7 +10,10 @@
  */
 class sfGuardUserForm extends PluginsfGuardUserForm
 {
-  public function configure()
-  {
-  }
+    public function configure()
+    {
+        $this->useFields(array('username', 'email_address', 'first_name', 'last_name'));
+
+        $this->widgetSchema->setNameFormat('user[%s]');
+    }
 }

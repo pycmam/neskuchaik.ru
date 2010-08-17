@@ -1,1 +1,115 @@
-﻿
+options:
+  type: INNODB
+  charset: utf8
+
+# Точка на карте (базовый класс)
+# =========================================================
+Point:
+  tableName:        app_points
+  actAs:
+    Timestampable: ~
+  columns:
+    model:          { type: enum, values: [place, event], notnull: true, default: event }
+    geo_lat:        { type: real }
+    geo_lng:        { type: real }
+    user_id:        { type: integer, notnull: true }
+    title:          { type: string(255), notnull: true }
+    description:    { type: string }
+    tags:           { type: string }
+
+  relations:
+    User:
+      class: sfGuardUser
+      local: user_id
+      foreign: id
+      foreignAlias: Points
+      onDelete: CASCADE
+
+    Users:
+      class: sfGuardUser
+      refClass: PointUser
+      local: point_id
+      foreign: user_id
+      foreignAlias: Points
+
+# Событие
+# =========================================================
+Event:
+  inheritance:
+    extends: Point
+    type: column_aggregation
+    keyField: model
+    keyValue: event
+  columns:
+    fire_at:     { type: timestamp, notnull: true }
+    is_active:   { type: boolean, notnull: true, default: true }
+
+# Место
+# =========================================================
+Place:
+  inheritance:
+    extends: Point
+    type: column_aggregation
+    keyField: model
+    keyValue: place
+  relations:
+    Events:
+      class: Event
+      refClass: PlaceEvent
+      local: place_id
+      foreign: event_id
+      foreignAlias: Place
+
+# Место - События
+# =========================================================
+PlaceEvent:
+  tableName:        app_place_events
+  columns:
+    place_id:       { type: integer, notnull: true }
+    event_id:       { type: integer, notnull: true }
+  relations:
+    Place:
+      local: place_id
+      foreign: id
+      onDelete: CASCADE
+    Event:
+      local: event_id
+      foreign: id
+      onDelete: CASCADE
+
+# Связь точка-юзер, для событий - народ, который учавствует,
+# для мест - народ, который "был здесь" (:
+# =========================================================
+PointUser:
+  tableName:        app_point_users
+  columns:
+    point_id:       { type: integer, notnull: true }
+    user_id:        { type: integer, notnull: true }
+  relations:
+    Point:
+      local: point_id
+      foreign: id
+      onDelete: CASCADE
+    User:
+      class: sfGuardUser
+      local: user_id
+      foreign: id
+      onDelete: CASCADE
+
+# Идентификаторы openID
+# =========================================================
+Identity:
+  tableName:        app_identities
+  actAs:
+    Timestampable:  ~
+  columns:
+    user_id:        { type: integer, notnull: true }
+    identity:       { type: string(255), notnull: true, unique: true }
+    provider:       { type: string(255) }
+  relations:
+    User:
+      class: sfGuardUser
+      local: user_id
+      foreign: id
+      foreignAlias: Identities
+      onDelete: CASCADE

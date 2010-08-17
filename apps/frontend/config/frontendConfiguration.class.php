@@ -20,11 +20,12 @@ class frontendConfiguration extends sfApplicationConfiguration
     protected function initPlugins()
     {
         $plugins = array(
-            'myImageUploadPlugin',
-            'sfDoctrineGuardPlugin',
             'sfDoctrinePlugin',
             'sfJqueryReloadedPlugin',
-            'sfReplicaThumbnailPlugin',
+            'npAssetsOptimizerPlugin',
+            'sfSimpleGoogleSitemapPlugin',
+            'myContentPlugin',
+            'sfRichMenuPlugin',
         );
 
         if ('test' == $this->getEnvironment()) {
@@ -42,6 +43,17 @@ class frontendConfiguration extends sfApplicationConfiguration
      */
     public function initialize()
     {
+        $dispatcher = $this->getEventDispatcher();
+        $this->dispatcher->connect('context.load_factories', array($this, 'onLoad'));
+    }
+
+    /**
+     * Обработчик context.load_factories
+     * Приложение полностью инициализировано перед обработкой запроса
+     */
+    public function onLoad(sfEvent $event)
+    {
+        include(sfContext::getInstance()->getConfigCache()->checkConfig('config/domain.yml'));
     }
 
 
@@ -51,8 +63,7 @@ class frontendConfiguration extends sfApplicationConfiguration
     public function configureDoctrine(Doctrine_Manager $manager)
     {
         parent::configureDoctrine($manager);
-        
-        /*
+
         if ('test' == $this->getEnvironment()) {
             $manager->setAttribute(Doctrine::ATTR_RESULT_CACHE, new Doctrine_Cache_Array());
             $manager->setAttribute(Doctrine::ATTR_RESULT_CACHE_LIFESPAN, 0);
@@ -68,8 +79,10 @@ class frontendConfiguration extends sfApplicationConfiguration
 
             $manager->setAttribute(Doctrine::ATTR_RESULT_CACHE, $cacheDriver);
             $manager->setAttribute(Doctrine::ATTR_RESULT_CACHE_LIFESPAN, 3600); // 1h
+
+            $manager->setAttribute(Doctrine::ATTR_QUERY_CACHE, $cacheDriver);
+            $manager->setAttribute(Doctrine::ATTR_QUERY_CACHE_LIFESPAN, 600); // 10m
         }
-        */
     }
 
 }

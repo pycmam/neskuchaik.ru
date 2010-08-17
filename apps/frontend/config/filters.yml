@@ -10,4 +10,8 @@ myCache:
   class: myContextualCacheFilter
 
 cache:     ~
+
+myDomain:
+  class: myDomainConfigFilter
+
 execution: ~

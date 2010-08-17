@@ -1,0 +1,16 @@
+# конифгурация, зивисимая от текущего домена
+all:
+  neskuchaik.dev:
+    google_maps:       ABQIAAAAF164Gul47Z874JCks-i4lxQRVEhK_ZWNl15ha8xkGK7NHMz-7BRwreM9DtfYmNwsb9DvXiUHdck6oA
+
+  neskuchaik.ru:
+    google_maps:       ABQIAAAAF164Gul47Z874JCks-i4lxSrMEZ3goTZl-XdKqjSFhg7riR9qhSSejMrLNZZk7XJdrrfRV9HyQ-__g
+
+  neskuchaik.pycmam.ru:
+    google_maps:       ABQIAAAAF164Gul47Z874JCks-i4lxStxk66_Rejfb6-yfzUVs1sqB5FWRSloLeSkB2oFAFothAtiDIy_lw5aA
+
+  admin.neskuchaik.dev:
+    google_maps:       ABQIAAAAF164Gul47Z874JCks-i4lxREPuLW1rix09Z4w_ieeCxbUjH7zRQpmKxhv4NFeuQaXT4xv_ycD2frJw
+
+  admin.neskuchaik.ru:
+    google_maps:       ABQIAAAAF164Gul47Z874JCks-i4lxRdezPm6X_Z9p2oaq7c11B0WApvghT91cb7MZ9OP3M1Xctzjw4_y47yDw

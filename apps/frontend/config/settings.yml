@@ -30,7 +30,7 @@ all:
     asset_timestamp:         true  # Подключение стилей как file.css?FILEMTIME
 
     # Form security secret (CSRF protection)
-    csrf_secret:             J9fEjkttdEbmlgh2hG8     # Unique secret to enable CSRF protection or false to disable
+    csrf_secret:             J9fEjkttwfwfEfddwEdEbmlgh2hG8     # Unique secret to enable CSRF protection or false to disable
 
     # Output escaping settings
     escaping_strategy:       true                # Determines how variables are made available to templates. Accepted values: true, false.
@@ -47,6 +47,7 @@ all:
 
     # Helpers included in all templates by default
     standard_helpers:
+      - myContent
       - Partial
       - Cache
       - I18N
@@ -59,6 +60,7 @@ all:
     enabled_modules:
       - default
       - sfGuardAuth
+      - sfRichMenu
 
   .actions:
     error_404_module:       main

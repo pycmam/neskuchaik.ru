@@ -17,6 +17,17 @@ class adminConfiguration extends sfApplicationConfiguration
      */
     public function initialize()
     {
+        $dispatcher = $this->getEventDispatcher();
+        $this->dispatcher->connect('context.load_factories', array($this, 'onLoad'));
+    }
+
+    /**
+     * Обработчик context.load_factories
+     * Приложение полностью инициализировано перед обработкой запроса
+     */
+    public function onLoad(sfEvent $event)
+    {
+        include(sfContext::getInstance()->getConfigCache()->checkConfig('config/domain.yml'));
     }
 
     /**

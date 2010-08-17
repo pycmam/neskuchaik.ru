@@ -24,7 +24,7 @@ all:
     no_script_name:         false            # Enable the front controller name in generated URLs
 
     # Form security secret (CSRF protection)
-    csrf_secret:            T8SfegGed52CDY   # Unique secret to enable CSRF protection or false to disable
+    csrf_secret:            T8fE46FDDF5SfegGweed52CDY   # Unique secret to enable CSRF protection or false to disable
 
     # Output escaping settings
     escaping_strategy:      true             # Determines how variables are made available to templates. Accepted values: on, off.
@@ -36,10 +36,12 @@ all:
     # Activated modules from plugins or from the symfony core
     enabled_modules:
       - default
+      - sfAdminDash
       - sfGuardAuth
-      - sfGuardUser
-      - sfGuardGroup
-      - sfGuardPermission
+      #- sfGuardUser
+      #- sfGuardGroup
+      #- sfGuardPermission
+      - myContentAdmin
 
     # I18N
     charset:                utf-8

@@ -1,1 +1,136 @@
-﻿
+﻿html, body, div, span,
+h1, h2, h3, h4, h5, h6, p, pre,
+a, img, strong,
+dl, dt, dd, ul, ol, li,
+fieldset, form, label, legend,
+table, tbody, thead, tr, th, td {
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    outline: 0px;
+    font-weight: inherit;
+    font-style: inherit;
+    font-size: 100%;
+    vertical-align: baseline;
+}
+
+html, body {
+    background: #fff;
+    color: #444;
+    font-family: tahoma,arial,sans-serif;
+    font-size: 9pt;
+    height: 100%;
+    width: 100%;
+}
+
+div, ul, ol, li, p {
+    overflow: hidden;
+}
+
+#map_canvas div,
+.google_map div {
+    overflow: visible;
+}
+
+h1, h2, h3, h4 {
+    font-weight: bold;
+    overflow: hidden;
+}
+
+h1 {
+    font-size: 20pt;
+    margin-bottom: 15px;
+}
+
+h2 {
+    font-size: 16pt;
+    margin-bottom: 10px;
+}
+
+h3 {
+    font-size: 13pt;
+    margin-bottom: 10px;
+}
+
+h4 {
+    font-size: 11pt;
+}
+
+p {
+    margin-bottom: 10px;
+}
+
+a {
+    color: #618BBC;
+    text-decoration: underline;
+}
+
+a:hover {
+    color: #F69452;
+}
+
+#wrap {
+    width: 100%;
+    height: 100%;
+}
+
+/* content layout */
+
+#wrap {
+    margin: 0 auto;
+    width: 960px;
+    padding: 20px 0;
+}
+
+/* map layout */
+
+#header {
+    height: 5%;
+}
+
+#map-layout {
+    width: 100%;
+    height: 95%;
+}
+
+#map {
+    float: left;
+    width: 80%;
+    height: 100%;
+}
+
+#map_canvas {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+}
+
+#sidebar {
+    float: left;
+    width: 20%;
+    height: 100%;
+    clear: right;
+    background: #0A0A08;
+    color: #fff;
+}
+
+#header ul {
+    margin-left: 20px;
+}
+
+#header ul li {
+    padding: 6px 0;
+    float: left;
+    margin-right: 20px;
+    font-size: 120%;
+}
+
+.content {
+    padding: 10px;
+    width: 100%;
+    height: 100%;
+}
+
+#sidebar .content {
+    border-left: 1px solid #003333;
+}

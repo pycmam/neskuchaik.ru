@@ -6,4 +6,8 @@ security: ~
 # insert your own filters here
 
 cache:     ~
+
+myDomain:
+  class: myDomainConfigFilter
+
 execution: ~

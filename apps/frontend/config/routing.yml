@@ -1,7 +1,46 @@
+map:
+  url: /map
+  params: { module: map, action index }
+
+loginza_signup:
+  url: /signup
+  class: sfRequestRoute
+  params: { module: loginza, action: signup }
+  requirements:
+    sf_method: get
+
+loginza_create:
+  url: /signup
+  class: sfRequestRoute
+  params: { module: loginza, action: create }
+  requirements:
+    sf_method: post
+
+loginza_auth:
+  url: /auth
+  class: sfRequestRoute
+  params: { module: loginza, action: auth }
+  requirements:
+    sf_method: post
+
+profile:
+  url: /my
+  class: sfRequestRoute
+  params: { module: loginza, action: profile }
+  requirements:
+    sf_method: get
+
+signout:
+  url: /signout
+  class: sfRequestRoute
+  params: { module: sfGuardAuth, action: signout }
+  requirements:
+    sf_method: get
+
 # Главная
 # ====================================================
 homepage:
   url:   /
-  params:  { module: default, action: index }
+  params:  { module: main, action: index }
   requirements:
     sf_method: get

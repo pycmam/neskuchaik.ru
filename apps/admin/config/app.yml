@@ -4,3 +4,52 @@ all:
     remember_key_expiration_age: 2592000   # 30 days in seconds
     remember_cookie_name:        me
     algorithm_callable:          md5
+
+  sf_admin_dash:
+    web_dir:              /sfAdminDashPlugin
+    image_dir:            /sfAdminDashPlugin/images/icons/
+    default_image:        config.png
+    resize_mode:          thumbnail
+    logout:               true
+    site:                 Нескучайк
+    include_jquery:       false
+    categories:
+      Administration:
+        name:       Администрирование
+        items:
+          places:
+            name:   Места
+            url:    place
+            image:  place
+          events:
+            name:   События
+            url:    event
+            image:  event
+      Settings:
+        name:       Настройки
+        items:
+          content:
+            name:   Контент
+            url:    myContentAdmin
+            image:  generic
+
+  # настройка оптимизатора ресурсов
+  np_assets_optimizer_plugin:
+    enabled: true
+    class: npAssetsOptimizerService
+    configuration:
+      default:
+        javascript:
+          enabled: false
+        stylesheet:
+          enabled: true
+          class: npOptimizerStylesheet
+          params:
+            driver: Cssmin
+            destination: /css/admin-packed.css
+            timestamp: false
+            files:
+              - /sfAdminDashPlugin/css/global.css
+              - /sfAdminDashPlugin/css/default.css
+              - admin.css
+  

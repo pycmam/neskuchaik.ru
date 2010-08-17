@@ -3,3 +3,23 @@ all:
     routes_register:             false
     remember_key_expiration_age: 2592000   # 30 days in seconds
     remember_cookie_name:        me
+
+  loginza:
+    widget_url: "https://loginza.ru/api/widget"
+    providers: "vkontakte,google,yandex,mailru,twitter,openid"
+    default_provider: vkontakte
+    token_url: loginza_auth
+
+
+  # меню сайта
+  sf_rich_menu:
+    header:
+      index:
+        name:           Карта
+        route:          homepage
+        active_pattern: 'main[index]'
+        attributes:     { class: first }
+      profile:
+        name:           Мой профиль
+        route:          profile
+        active_pattern: 'profile[*]'

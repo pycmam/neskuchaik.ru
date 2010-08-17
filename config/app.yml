@@ -8,6 +8,11 @@ dev:
     script_name: /dev.php
 
 all:
+  .settings:
+    domains: ['*']
+
+  google_map_default_coordinates: "56.76853, 54.1245"
+
   thumbnail:
     dir: /uploads/thumbnails
     types:

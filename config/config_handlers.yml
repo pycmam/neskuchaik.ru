@@ -1,0 +1,4 @@
+config/domain.yml:
+  class: sfDomainConfigHandler
+  param:
+    prefix: dm_
