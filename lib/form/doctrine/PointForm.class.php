@@ -10,7 +10,11 @@
  */
 class PointForm extends BasePointForm
 {
-  public function configure()
-  {
-  }
+    public function configure()
+    {
+        $this->widgetSchema['geo_lat'] = new sfWidgetFormInputHidden();
+        $this->widgetSchema['geo_lng'] = new sfWidgetFormInputHidden();
+
+        $this->widgetSchema->setNameFormat('point[%s]');
+    }
 }

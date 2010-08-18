@@ -48,6 +48,7 @@ all:
     # Helpers included in all templates by default
     standard_helpers:
       - myContent
+      - jQuery
       - Partial
       - Cache
       - I18N
@@ -61,6 +62,7 @@ all:
       - default
       - sfGuardAuth
       - sfRichMenu
+      - myContent
 
   .actions:
     error_404_module:       main

@@ -43,9 +43,15 @@ class loginzaActions extends sfActions
             $this->getUser()->setAttribute('identity.id', $identity->getId());
 
             // авторизуем
-            $this->getUser()->signin($user);
+            $this->getUser()->signin($user, true);
+        }
 
-            $this->redirect('homepage');
+        if (! $this->form->hasErrors()) {
+            if ($request->isXmlHttpRequest()) {
+                return $this->renderText("<script type='text/javascript'>window.location.href='/';</script>");
+            } else {
+                return $this->redirect('homepage');
+            }
         }
 
         $this->setTemplate('signup');

@@ -6,20 +6,48 @@ all:
 
   loginza:
     widget_url: "https://loginza.ru/api/widget"
-    providers: "vkontakte,google,yandex,mailru,twitter,openid"
-    default_provider: vkontakte
     token_url: loginza_auth
+    buttons:
+      vkontakte:
+        name: "Войти, используя учетную запись ВКонтакте"
+        provider: vkontakte
+        image:  "/images/auth/vkontakte.png"
+      google:
+        name: "Войти, используя Google-аккаунт"
+        provider: google
+        image:  "/images/auth/google.png"
+      yandex:
+        name: "Войти, используя аккаунт почты Яндекса"
+        provider: yandex
+        image:  "/images/auth/yandex.png"
+      mailru:
+        name: "Войти, используя аккаунт почты mail.ru"
+        provider: mailru
+        image:  "/images/auth/mailru.png"
+      openid:
+        name: "Войти через openID"
+        provider: openid
+        image:  "/images/auth/openid.png"
 
 
   # меню сайта
   sf_rich_menu:
+    # главное меню
     header:
       index:
-        name:           Карта
+        name:           Главная
         route:          homepage
-        active_pattern: 'main[index]'
-        attributes:     { class: first }
-      profile:
-        name:           Мой профиль
-        route:          profile
-        active_pattern: 'profile[*]'
+        active_pattern: 'catalog[*];place[*];event[*]'
+        link_attributes: { class: ajax hl }
+      about:
+        name:           О проекте
+        route:          page_about
+        active_pattern: 'myContent[show@url=about]'
+        link_attributes: { class: ajax hl }
+      contacts:
+        name:           Контакты
+        route:          page_contacts
+        active_pattern: 'myContent[show@url=contacts]'
+        link_attributes: { class: ajax hl }
+
+

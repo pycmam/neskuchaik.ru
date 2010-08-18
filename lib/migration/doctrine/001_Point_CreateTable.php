@@ -23,7 +23,6 @@ class Migration001_Point_CreateTable extends Doctrine_Migration_Base
               1 => 'event',
               ),
               'notnull' => true,
-              'default' => 'event',
               'length' => NULL,
              ),
              'geo_lat' =>

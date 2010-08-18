@@ -9,7 +9,7 @@ Point:
   actAs:
     Timestampable: ~
   columns:
-    model:          { type: enum, values: [place, event], notnull: true, default: event }
+    model:          { type: enum, values: [place, event], notnull: true }
     geo_lat:        { type: real }
     geo_lng:        { type: real }
     user_id:        { type: integer, notnull: true }

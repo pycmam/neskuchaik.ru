@@ -4,7 +4,10 @@
   <file source-language="system" target-language="ru" datatype="plaintext" original="messages">
     <header/>
     <body>
-
+        <trans-unit>
+            <source>Required.</source>
+            <target>Обязательное поле.</target>
+        </trans-unit>
     </body>
   </file>
 </xliff>

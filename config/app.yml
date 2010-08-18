@@ -27,3 +27,7 @@ all:
     script_name: false
     admin:       "admin.%s"
     frontend:    "%s"
+
+  marker:
+    dir: "/images/marker/"
+    images: [1,2,3,4,5,6,7,8,9,10]

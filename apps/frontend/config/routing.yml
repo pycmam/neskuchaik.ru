@@ -1,7 +1,77 @@
+
+# Места
+# ====================================================
+catalog_place:
+  url: /catalog/:model
+  class: sfRequestRoute
+  params: { module: catalog, action: index, model: place }
+  requirements:
+    sf_method: get
+
+place_new:
+  url: /place/new
+  class: sfRequestRoute
+  params: { module: place, action: new }
+  requirements:
+    sf_method: get
+
+place_create:
+  url: /place/new
+  class: sfRequestRoute
+  params: { module: place, action: create }
+  requirements:
+    sf_method: [put, post]
+
+# События
+# ====================================================
+catalog_event:
+  url: /catalog/:model
+  class: sfRequestRoute
+  params: { module: catalog, action: index, model: event }
+  requirements:
+    sf_method: get
+
+event_new:
+  url: /event/new
+  class: sfRequestRoute
+  params: { module: event, action: new }
+  requirements:
+    sf_method: get
+
+event_create:
+  url: /event/new
+  class: sfRequestRoute
+  params: { module: event, action: create }
+  requirements:
+    sf_method: [put, post]
+
+# Каталог
+# ====================================================
+catalog:
+  url: /catalog
+  class: sfRequestRoute
+  params: { module: catalog, action: index }
+  requirements:
+    sf_method: get
+
+catalog_show:
+  url: /:model/:id
+  class: sfDoctrineRoute
+  options: { model: Point, type: object }
+  params: { module: catalog, action: show }
+  requirements:
+    sf_method: get
+    model: "place|event"
+    id: \d+
+
+# Карта
+# ====================================================
 map:
   url: /map
   params: { module: map, action index }
 
+# Регистрация
+# ====================================================
 loginza_signup:
   url: /signup
   class: sfRequestRoute
@@ -16,6 +86,8 @@ loginza_create:
   requirements:
     sf_method: post
 
+# Авторизация
+# ====================================================
 loginza_auth:
   url: /auth
   class: sfRequestRoute
@@ -23,6 +95,8 @@ loginza_auth:
   requirements:
     sf_method: post
 
+# Профиль
+# ====================================================
 profile:
   url: /my
   class: sfRequestRoute
@@ -30,6 +104,8 @@ profile:
   requirements:
     sf_method: get
 
+# Выход
+# ====================================================
 signout:
   url: /signout
   class: sfRequestRoute
@@ -37,10 +113,31 @@ signout:
   requirements:
     sf_method: get
 
+# Страницы
+# ====================================================
+page:
+  url: /:url
+  class: sfDoctrineRoute
+  options: { model: myContent, type: object, method_for_query: getByDomain }
+  params: { module: myContent, action: show }
+  requirements:
+    sf_method: get
+
+# Контакты
+# ====================================================
+page_contacts:
+  url: /contacts
+
+# О проекте
+# ====================================================
+page_about:
+  url: /about
+
 # Главная
 # ====================================================
 homepage:
   url:   /
-  params:  { module: main, action: index }
+  params:  { module: catalog, action: index }
   requirements:
     sf_method: get
+
