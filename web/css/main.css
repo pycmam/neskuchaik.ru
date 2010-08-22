@@ -83,7 +83,7 @@ a.ajax:hover {
 
 .active a.ajax {
     color: #fff;
-    background: #F69452;
+    background: #618BBC;
     border: none;
     padding: 2px 5px;
     margin-top: -2px;
@@ -96,9 +96,24 @@ a.ajax:hover {
 /* forms */
 
 input[type=text], input[type=submit], textarea, select {
+    border: 1px solid #d1d1d1;
+    background: #fff;
+    color: #444;
     font-family: tahoma, arial, sans-serif;
     font-size: 10pt;
-    padding: 1px;
+    padding: 2px;
+}
+
+input[type=text], select {
+    height: 20px;
+}
+
+input[type=submit] {
+    padding: 4px;
+}
+
+.datepicker {
+    background: #fff url('/images/datepicker.png') right center no-repeat !important;
 }
 
 label {
@@ -114,10 +129,7 @@ label {
 
 .form-item {
     margin-bottom: 5px;
-}
-
-form input[type=submit] {
-    padding: 2px;
+    position: relative;
 }
 
 .content {
@@ -244,13 +256,78 @@ form input[type=submit] {
     background: url('/images/ajax-loader.gif') center center no-repeat;
 }
 
+#actions a.action {
+    display: block;
+    width: 120px;
+    height: 16px;
+    margin-top: 10px;
+    padding-left: 20px;
+    border: 0;
+}
+
+#actions #add-place {
+    background: url('/images/add-place.png') center left no-repeat;
+}
+
+#actions #add-event {
+    background: url('/images/add-event.png') center left no-repeat;
+}
+
 /* places */
 
-#point-form #point_title,
-#point-form #point_description {
-    width: 340px;
+#point-form #point_title {
+    width: 85%;
+    margin-bottom: 10px;
+}
+
+#point-form #point_description,
+#point-form #point_tags,
+#point-form #point_fire_at {
+    width: 95%;
+}
+
+#point-form .icon-changer {
+    position: absolute;
+    right: 0;
+    top: 7px;
 }
 
 #point-form #point_description {
-    height: 100px;
+    height: 70px;
+}
+
+/* селектор иконок */
+.icon-changer {
+    display: block;
+    overflow: hidden;
+    width: 28px;
+    height: 43px;
+    z-index: 10;
+}
+
+.icon-changer img {
+    display: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px 2px 2px 2px;
+}
+
+.icon-changer img.selected {
+    display: block;
+}
+
+.icon-changer:hover {
+    width: auto;
+    height: auto;
+    border: 1px solid #d1d1d1;
+    background: #fff;
+}
+
+.icon-changer:hover img {
+    display: block;
+    float: left;
+}
+
+.icon-changer:hover img.selected {
+    background: #d1d1d1;
 }

@@ -14,6 +14,12 @@ class PointForm extends BasePointForm
     {
         $this->widgetSchema['geo_lat'] = new sfWidgetFormInputHidden();
         $this->widgetSchema['geo_lng'] = new sfWidgetFormInputHidden();
+        $this->widgetSchema['tags'] = new sfWidgetFormInput();
+        $this->widgetSchema['icon'] = new myWidgetFormIcon(array(
+            'icons' => sfConfig::get('app_marker_icons'),
+            'path' => '/images/marker',
+            'target' => '#point_icon',
+        ));
 
         $this->widgetSchema->setNameFormat('point[%s]');
     }

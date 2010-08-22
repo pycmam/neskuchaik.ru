@@ -17,6 +17,8 @@ class PlaceForm extends BasePlaceForm
     {
         parent::configure();
 
-        $this->useFields(array('title', 'description', 'geo_lat', 'geo_lng'));
+        $this->useFields(array('title', 'icon', 'description', 'geo_lat', 'geo_lng'));
+
+        $this->widgetSchema->setNameFormat('point[%s]');
     }
 }

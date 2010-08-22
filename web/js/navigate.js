@@ -1,9 +1,10 @@
 $(function(){
     $('a.ajax').live('click', function() {
         var link = $(this);
+        var point = map.getMap().getCenter();
 
         $.ajax({
-            url: link.attr('href'),
+            url: link.attr('href') + '?geo_lat=' + point.lat() + '&geo_lng=' + point.lng(),
             type: 'get',
             dataType: 'html',
             cache: false,

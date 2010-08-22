@@ -41,9 +41,9 @@ class placeActions extends sfActions
 
         if (! $this->form->hasErrors()) {
             if ($request->isXmlHttpRequest()) {
-                return $this->renderPartial('catalog/show', array('point' => $place));
+                return $this->renderPartial('place/show', array('place' => $place));
             } else {
-                return $this->redirect('catalog_show', $place);
+                return $this->redirect('place_show', $place);
             }
         }
 
@@ -56,5 +56,16 @@ class placeActions extends sfActions
     public function executeShow()
     {
         $this->place = $this->getRoute()->getObject();
+    }
+
+
+    /**
+     * Данные о местах в JSON
+     */
+    public function executePlaces()
+    {
+        $this->places = PlaceTable::getInstance()
+            ->createQuery('a')
+            ->execute(array(), Doctrine::HYDRATE_ARRAY);
     }
 }

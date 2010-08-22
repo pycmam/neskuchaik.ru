@@ -1,12 +1,14 @@
 
 # Места
 # ====================================================
-catalog_place:
-  url: /catalog/:model
-  class: sfRequestRoute
-  params: { module: catalog, action: index, model: place }
+place_show:
+  url: /place/:id
+  class: sfDoctrineRoute
+  options: { model: Place, type: object }
+  params: { module: place, action: show }
   requirements:
     sf_method: get
+    id: \d+
 
 place_new:
   url: /place/new
@@ -22,14 +24,30 @@ place_create:
   requirements:
     sf_method: [put, post]
 
-# События
-# ====================================================
-catalog_event:
-  url: /catalog/:model
+place_js:
+  url: /places.:sf_format
   class: sfRequestRoute
-  params: { module: catalog, action: index, model: event }
+  params: { module: place, action: places, sf_format: js }
   requirements:
     sf_method: get
+
+# События
+# ====================================================
+event:
+  url: /events
+  class: sfRequestRoute
+  params: { module: event, action: index }
+  requirements:
+    sf_method: get
+
+event_show:
+  url: /event/:id
+  class: sfDoctrineRoute
+  options: { model: Event, type: object }
+  params: { module: event, action: show }
+  requirements:
+    sf_method: get
+    id: \d+
 
 event_new:
   url: /event/new
@@ -44,25 +62,6 @@ event_create:
   params: { module: event, action: create }
   requirements:
     sf_method: [put, post]
-
-# Каталог
-# ====================================================
-catalog:
-  url: /catalog
-  class: sfRequestRoute
-  params: { module: catalog, action: index }
-  requirements:
-    sf_method: get
-
-catalog_show:
-  url: /:model/:id
-  class: sfDoctrineRoute
-  options: { model: Point, type: object }
-  params: { module: catalog, action: show }
-  requirements:
-    sf_method: get
-    model: "place|event"
-    id: \d+
 
 # Карта
 # ====================================================
@@ -137,7 +136,7 @@ page_about:
 # ====================================================
 homepage:
   url:   /
-  params:  { module: catalog, action: index }
+  params:  { module: event, action: index }
   requirements:
     sf_method: get
 

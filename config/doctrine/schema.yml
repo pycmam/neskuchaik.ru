@@ -15,6 +15,7 @@ Point:
     user_id:        { type: integer, notnull: true }
     title:          { type: string(255), notnull: true }
     description:    { type: string }
+    icon:           { type: string(25), notnull: true, default: star }
     tags:           { type: string }
 
   relations:
@@ -41,8 +42,15 @@ Event:
     keyField: model
     keyValue: event
   columns:
+    place_id:    { type: integer }
     fire_at:     { type: timestamp, notnull: true }
     is_active:   { type: boolean, notnull: true, default: true }
+  relations:
+    Place:
+      local: place_id
+      foreign: id
+      foreignAlias: Events
+      onDelete: CASCADE
 
 # Место
 # =========================================================
@@ -52,30 +60,6 @@ Place:
     type: column_aggregation
     keyField: model
     keyValue: place
-  relations:
-    Events:
-      class: Event
-      refClass: PlaceEvent
-      local: place_id
-      foreign: event_id
-      foreignAlias: Place
-
-# Место - События
-# =========================================================
-PlaceEvent:
-  tableName:        app_place_events
-  columns:
-    place_id:       { type: integer, notnull: true }
-    event_id:       { type: integer, notnull: true }
-  relations:
-    Place:
-      local: place_id
-      foreign: id
-      onDelete: CASCADE
-    Event:
-      local: event_id
-      foreign: id
-      onDelete: CASCADE
 
 # Связь точка-юзер, для событий - народ, который учавствует,
 # для мест - народ, который "был здесь" (:
@@ -95,6 +79,10 @@ PointUser:
       local: user_id
       foreign: id
       onDelete: CASCADE
+  options:
+    symfony:
+      form: false
+      filter: false
 
 # Идентификаторы openID
 # =========================================================

@@ -7,7 +7,11 @@
  */
 ?>
 
-<h2>Новое место</h2>
+<?php include_partial('global/movable.js') ?>
+
+<h2>Отметить место</h2>
+
+<p>Перетащите маркер на карте в нужное место.</p>
 
 <?php echo jq_form_remote_tag(array(
     'url' => 'place_create',
@@ -23,6 +27,3 @@
         </li>
     </ul>
 </form>
-
-<p>Перетащите маркер на карте в нужное место.</p>
-
