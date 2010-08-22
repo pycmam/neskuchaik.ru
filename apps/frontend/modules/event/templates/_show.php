@@ -46,4 +46,6 @@ $move = isset($move) ? $move : true;
 </h2>
 <?php endif ?>
 
+<?php include_partial('global/share', array('point' => $event)) ?>
+
 <?php echo link_to('<span>комментарии</span>', 'event_comments', $event, array('class' => 'overlay point-comments')) ?>

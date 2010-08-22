@@ -27,5 +27,6 @@
 </h2>
 <?php endif ?>
 
-<?php echo link_to('<span>комментарии</span>', 'place_comments', $place, array('class' => 'overlay point-comments')) ?>
+<?php include_partial('global/share', array('point' => $place)) ?>
 
+<?php echo link_to('<span>комментарии</span>', 'place_comments', $place, array('class' => 'overlay point-comments')) ?>

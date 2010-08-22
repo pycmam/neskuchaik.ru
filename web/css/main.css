@@ -14,6 +14,10 @@ table, tbody, thead, tr, th, td {
     vertical-align: baseline;
 }
 
+p {
+    line-height: 22px;
+}
+
 html, body {
     background: #fff;
     color: #444;
@@ -327,7 +331,9 @@ h2.event-fire-at,
 .event-go,
 .place-add-event,
 .point-comments,
-.userlink {
+.userlink,
+.place-events,
+#share-buttons {
     padding-left: 22px;
 }
 
@@ -403,6 +409,17 @@ h2.event-fire-at,
     float: left;
     margin-right: 10px;
     margin-top: 0;
+}
+
+/* кнопки расшаривания */
+
+#share-buttons {
+    margin-top: 15px;
+}
+
+#share-buttons .share-button {
+    float: left;
+    margin-right: 10px;
 }
 
 /* селектор иконок */
