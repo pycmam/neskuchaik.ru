@@ -20,6 +20,9 @@ class PointForm extends BasePointForm
             'path' => '/images/marker',
             'target' => '#point_icon',
         ));
+        $this->validatorSchema['icon'] = new sfValidatorChoice(array(
+            'choices' => sfConfig::get('app_marker_icons'),
+        ));
 
         $this->widgetSchema->setNameFormat('point[%s]');
     }

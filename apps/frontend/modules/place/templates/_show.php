@@ -8,16 +8,24 @@
 
 <?php include_partial('global/show.js', array('point' => $place)) ?>
 
-<h2 class="place-title"><?php echo $place ?></h2>
+<h2 class="title icon-<?php echo $place->getIcon() ?>"><?php echo $place ?></h2>
 
 <?php if ($description = $place->getDescription()): ?>
-    <p><?php echo nl2br($description) ?>
+    <p class="point-desc"><?php echo nl2br($description) ?></p>
 <?php endif ?>
 
-<p>
-    <?php echo link_to('#', 'place_show', $place, array('title' => 'Прямая ссылка')) ?>,
-    добавил <?php echo $place->getUser()->getUsername() ?>,
-    <?php echo date('d.m.Y в H:i', strtotime($place->getCreatedAt())) ?>
-</p>
+<?php if ($count = count($events = $place->getActualEvents())): ?>
+<div class="place-events">
+    <h3>События (<?php echo $count ?>):</h3>
+    <?php include_partial('event/list', array('events' => $events)) ?>
+</div>
+<?php endif ?>
 
-<?php echo link_to('Добавить событие в этом месте', 'event_new', array('place' => $place->getId()), array('class' => 'ajax app-place')) ?>
+<?php if ($sf_user->isAuthenticated()): ?>
+<h2 class="place-add-event">
+    <?php echo link_to('Добавить событие', 'event_new', array('place' => $place->getId()), array('class' => 'ajax')) ?>
+</h2>
+<?php endif ?>
+
+<?php echo link_to('<span>комментарии</span>', 'place_comments', $place, array('class' => 'overlay point-comments')) ?>
+

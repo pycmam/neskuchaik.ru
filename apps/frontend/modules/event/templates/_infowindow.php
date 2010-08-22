@@ -6,4 +6,9 @@
  */
 ?>
 <h2><?php echo $event ?></h2>
-<p><?php echo nl2br($event->getDescription()) ?></p>
+
+<p><?php echo human_date($event->getFireAt(), true) ?></p>
+
+<?php if ($description = $event->getDescription()): ?>
+<p><?php echo nl2br($description) ?></p>
+<?php endif ?>

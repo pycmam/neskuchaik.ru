@@ -25,7 +25,6 @@ Point:
       foreign: id
       foreignAlias: Points
       onDelete: CASCADE
-
     Users:
       class: sfGuardUser
       refClass: PointUser
@@ -51,6 +50,7 @@ Event:
       foreign: id
       foreignAlias: Events
       onDelete: CASCADE
+    
 
 # Место
 # =========================================================
@@ -61,28 +61,51 @@ Place:
     keyField: model
     keyValue: place
 
-# Связь точка-юзер, для событий - народ, который учавствует,
-# для мест - народ, который "был здесь" (:
+# Связь точка-юзер, для событий - народ, который учавствует
 # =========================================================
 PointUser:
   tableName:        app_point_users
   columns:
-    point_id:       { type: integer, notnull: true }
-    user_id:        { type: integer, notnull: true }
+    point_id:       { type: integer, primary: true }
+    user_id:        { type: integer, primary: true }
   relations:
     Point:
       local: point_id
       foreign: id
+      foreignAlias: PointUser
+      onDelete: CASCADE
+    User:
+      class: sfGuardUser
+      local: user_id
+      foreign: id
+      foreignAlias: PointUser
+      onDelete: CASCADE
+  options:
+    symfony:
+      form: false
+      filter: false
+
+# Комменты
+# =========================================================
+Comment:
+  tableName:      app_comments
+  actAs:
+    Timestampable: ~
+  columns:
+    point_id:     { type: integer, notnull: true }
+    user_id:      { type: integer, notnull: true }
+    comment:      { type: string(1024), notnull: true }
+  relations:
+    Point:
+      local: point_id
+      foreign: id
+      foreignAlias: Comments
       onDelete: CASCADE
     User:
       class: sfGuardUser
       local: user_id
       foreign: id
       onDelete: CASCADE
-  options:
-    symfony:
-      form: false
-      filter: false
 
 # Идентификаторы openID
 # =========================================================

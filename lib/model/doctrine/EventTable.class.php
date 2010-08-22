@@ -42,7 +42,8 @@ class EventTable extends PointTable
     public function queryActive(Doctrine_Query $q = null)
     {
         if (is_null($q)) {
-            $q = $this->createQuery('a');
+            $q = $this->createQuery('a')
+                ->leftJoin('a.Comments com');
         }
 
         return $q->andWhere($q->getRootAlias() . '.is_active = 1')

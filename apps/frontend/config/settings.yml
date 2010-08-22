@@ -50,6 +50,8 @@ all:
       - myContent
       - jQuery
       - Partial
+      - Date
+      - HumanDate
       - Cache
       - I18N
 
@@ -68,8 +70,8 @@ all:
     error_404_module:       main
     error_404_action:       404
 
-    login_module:           sfGuardAuth
-    login_action:           signin
+    login_module:           main
+    login_action:           index
 
-    secure_module:          sfGuardAuth
-    secure_action:          secure
+    secure_module:          main
+    secure_action:          404

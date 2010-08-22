@@ -64,8 +64,24 @@ class placeActions extends sfActions
      */
     public function executePlaces()
     {
-        $this->places = PlaceTable::getInstance()
-            ->createQuery('a')
+        $this->points = PointTable::getInstance()
+            ->queryActive()
             ->execute(array(), Doctrine::HYDRATE_ARRAY);
+    }
+
+    /**
+     * Удалить
+     */
+    public function executeDelete(sfWebRequest $request)
+    {
+        $request->chechCSRFProtection();
+        $place = $this->getRoute()->getObject();
+        $place->delete();
+
+        if ($request->isXmlHttpRequest()) {
+            $this->forward('event', 'index');
+        }
+
+        $this->redirect('event');
     }
 }

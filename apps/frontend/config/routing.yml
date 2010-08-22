@@ -31,6 +31,15 @@ place_js:
   requirements:
     sf_method: get
 
+place_comments:
+  url: /place/:id/view
+  class: sfDoctrineRoute
+  options: { model: Place, type: object }
+  params: { module: place, action: show, full: true }
+  requirements:
+    sf_method: get
+    id: \d+
+
 # События
 # ====================================================
 event:
@@ -63,11 +72,46 @@ event_create:
   requirements:
     sf_method: [put, post]
 
-# Карта
+event_comments:
+  url: /event/:id/view
+  class: sfDoctrineRoute
+  options: { model: Event, type: object }
+  params: { module: event, action: show, full: true }
+  requirements:
+    sf_method: get
+    id: \d+
+
+event_accept:
+  url: /event/:id/accept
+  class: sfDoctrineRoute
+  options: { model: Event, type: object }
+  params: { module: event, action: accept }
+  requirements:
+    sf_method: [post]
+    id: \d+
+
+event_reject:
+  url: /event/:id/reject
+  class: sfDoctrineRoute
+  options: { model: Event, type: object }
+  params: { module: event, action: reject }
+  requirements:
+    sf_method: [post]
+    id: \d+
+
+# Юзеры
 # ====================================================
-map:
-  url: /map
-  params: { module: map, action index }
+users:
+  url: /users
+
+user_show:
+  url: /user/:username
+  class: sfDoctrineRoute
+  options: { model: sfGuardUser, type: object }
+  params: { module: user, action: show }
+  requirements:
+    sf_method: get
+    id: \d+
 
 # Регистрация
 # ====================================================

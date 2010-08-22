@@ -256,13 +256,32 @@ label {
     background: url('/images/ajax-loader.gif') center center no-repeat;
 }
 
-#actions a.action {
+#actions a.action,
+.point-comments,
+.userlink {
     display: block;
-    width: 120px;
     height: 16px;
     margin-top: 10px;
     padding-left: 20px;
+    text-decoration: none;
     border: 0;
+}
+
+#actions a.action,
+.point-comments {
+    width: 120px;
+}
+
+#actions a.action span,
+.point-comments span,
+.userlink span {
+    border-bottom: 1px dashed #618BBC;
+}
+
+#actions a.action:hover span,
+.point-comments:hover span,
+.userlink:hover span {
+    border-bottom: 1px dashed #F69452;
 }
 
 #actions #add-place {
@@ -296,7 +315,98 @@ label {
     height: 70px;
 }
 
+h2.title {
+    height: 32px;
+    padding-top: 5px;
+    padding-left: 32px;
+}
+
+h2.event-fire-at, 
+.point-desc,
+.event-users,
+.event-go,
+.place-add-event,
+.point-comments,
+.userlink {
+    padding-left: 22px;
+}
+
+.point-desc {
+    background: url('/images/info.png') left top no-repeat;
+    min-height: 16px;
+}
+
+.event-users {
+    background: url('/images/group.png') left top no-repeat;
+    min-height: 16px;
+    margin-bottom: 10px;
+}
+
+.point-comments,
+.userlink,
+.point-comments:hover,
+.userlink:hover {
+    display: block;
+    height: 16px;
+    border: none !important;
+}
+
+.point-comments {
+    background: url('/images/comments.png') left top no-repeat;
+    width: 100px;
+}
+
+.userlink {
+    background: url('/images/user.png') left top no-repeat;
+}
+
+.place-infowindow-events h3 {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.place-infowindow-events .item {
+    padding: 3px;
+}
+
+.place-infowindow-events .item:hover {
+    background: #ccc;
+}
+
+.place-infowindow-events .event-fire-at {
+    float: right;
+    font-size: 8pt;
+    color: #666;
+    margin-left: 10px;
+    text-transform: lowercase;
+}
+
+.item.event {
+    margin-bottom: 10px;
+    clear: both;
+}
+
+.item.event .time {
+    display: block;
+    float: left;
+    width: 40px;
+    color: #33CC66;
+}
+
+.item.event .desc {
+    margin-left: 40px;
+    margin-top: 5px;
+}
+
+.item .point-comments,
+.item .userlink {
+    float: left;
+    margin-right: 10px;
+    margin-top: 0;
+}
+
 /* селектор иконок */
+
 .icon-changer {
     display: block;
     overflow: hidden;
@@ -331,3 +441,34 @@ label {
 .icon-changer:hover img.selected {
     background: #d1d1d1;
 }
+
+/* иконки */
+
+.icon-movie {
+    background: url('/images/marker/movie.png') left center no-repeat;
+}
+.icon-concert {
+    background: url('/images/marker/concert.png') left center no-repeat;
+}
+.icon-administration {
+    background: url('/images/marker/administration.png') left center no-repeat;
+}
+.icon-education {
+    background: url('/images/marker/education.png') left center no-repeat;
+}
+.icon-clothes {
+    background: url('/images/marker/clothes.png') left center no-repeat;
+}
+.icon-eat {
+    background: url('/images/marker/eat.png') left center no-repeat;
+}
+.icon-beer {
+    background: url('/images/marker/beer.png') left center no-repeat;
+}
+.icon-star {
+    background: url('/images/marker/star.png') left center no-repeat;
+}
+.icon-theater {
+    background: url('/images/marker/theater.png') left center no-repeat;
+}
+

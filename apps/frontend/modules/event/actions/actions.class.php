@@ -71,4 +71,71 @@ class eventActions extends sfActions
 
         $this->setTemplate('new');
     }
+
+    /**
+     * Я иду!
+     */
+    public function executeAccept(sfWebRequest $request)
+    {
+        $event = $this->getRoute()->getObject();
+        $user = $this->getUser()->getGuardUser();
+
+        if (! $event->hasAcceptFrom($user->id)) {
+            $accept = new PointUser();
+            $accept->setPoint($event);
+            $accept->setUser($user);
+            $accept->save();
+        }
+
+        if ($request->isXmlHttpRequest()) {
+            return $this->renderPartial('event/show', array(
+                'event' => $event,
+                'move' => false, // не дергать карту
+            ));
+        } else {
+            return $this->redirect('event_show', $event);
+        }
+    }
+
+    /**
+     * Я передумал :-/
+     */
+    public function executeReject(sfWebRequest $request)
+    {
+        $event = $this->getRoute()->getObject();
+        $user = $this->getUser()->getGuardUser();
+
+        if ($accept = $event->hasAcceptFrom($user->id)) {
+            $accept->delete();
+        }
+
+        // обновить событие
+        $event = EventTable::getInstance()->findOneById($event->id);
+
+        if ($request->isXmlHttpRequest()) {
+            return $this->renderPartial('event/show', array(
+                'event' => $event,
+                'move' => false, // не дергать карту
+            ));
+        } else {
+            return $this->redirect('event_show', $event);
+        }
+    }
+
+
+    /**
+     * Удалить
+     */
+    public function executeDelete(sfWebRequest $request)
+    {
+        $request->chechCSRFProtection();
+        $event = $this->getRoute()->getObject();
+        $event->delete();
+
+        if ($request->isXmlHttpRequest()) {
+            $this->forward('event', 'index');
+        }
+
+        $this->redirect('event');
+    }
 }

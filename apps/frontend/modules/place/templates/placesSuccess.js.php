@@ -2,7 +2,7 @@
 /**
  * Данные о местах
  *
- * @param array $places
+ * @param array $points
  */
 ?>
 
@@ -13,16 +13,16 @@ $(function(){
     <?php endforeach ?>
 
     var places = {};
-    <?php foreach($places as $i => $place): ?>
-    places[<?php echo $place['id'] ?>] = new GMarker(
-        new GLatLng(<?php echo $place['geo_lat'], ', ', $place['geo_lng'] ?>), {
-            title: '<?php echo $place['title'] ?>',
-            icon: map.getIcon('<?php echo $place['icon'] ?>')
+    <?php foreach($points as $i => $point): ?>
+    places[<?php echo $point['id'] ?>] = new GMarker(
+        new GLatLng(<?php echo $point['geo_lat'], ', ', $point['geo_lng'] ?>), {
+            title: '<?php echo str_replace("'", "\'", $point['title']) ?>',
+            icon: map.getIcon('<?php echo $point['icon'] ?>')
         });
 
-    GEvent.addListener(places[<?php echo $place['id'] ?>], 'click', function() {
+    GEvent.addListener(places[<?php echo $point['id'] ?>], 'click', function() {
         $.ajax({
-            url: '<?php echo url_for('place_show', array('id' => $place['id'])) ?>',
+            url: '<?php echo url_for($point['model'] . '_show', array('id' => $point['id'])) ?>',
             type: 'get',
             dataType: 'html',
             cache: false,

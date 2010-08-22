@@ -17,7 +17,7 @@
 <?php endif ?>
 
 <?php if (isset($place)): ?>
-    <p>Место: <b><?php echo link_to($place, 'place_show', $place, array('class' => 'ajax')) ?></b></p>
+    <h2 class="title icon-<?php echo $place->getIcon() ?>"><?php echo link_to($place, 'place_show', $place, array('class' => 'ajax')) ?></h2>
 <?php endif ?>
 
 <?php echo jq_form_remote_tag(array(
@@ -30,7 +30,10 @@
         <?php include_partial('event/form', array('form' => $form)) ?>
         <li class="form-item">
             <input type="submit" value="Сохранить" />
-            <?php echo link_to('Отмена', 'homepage', array(), array('class' => 'ajax')) ?>
+            <?php echo link_to('Отмена', 'homepage', array(), array(
+                'class' => 'ajax',
+                'onclick' => 'map.getMarker().hide();',
+            )) ?>
         </li>
     </ul>
 </form>

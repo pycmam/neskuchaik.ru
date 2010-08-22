@@ -23,7 +23,7 @@
 
     <div id="map-layout">
         <div id="map">
-            <?php include_partial('map/map') ?>
+            <?php include_partial('global/map') ?>
         </div>
 
         <div id="sidebar">
@@ -43,12 +43,12 @@
                                 Привет, <?php echo $sf_user->getGuardUser()->getUsername() ?>!
                                 [ <strong><?php echo link_to('выйти', 'signout') ?></strong> ]
 
-                                <?php echo link_to('отметить место', 'place_new', array(), array(
+                                <?php echo link_to('<span>отметить место</span>', 'place_new', array(), array(
                                     'id' => 'add-place',
                                     'class' => 'ajax action',
                                 )) ?>
 
-                                <?php echo link_to('добавить событие', 'event_new', array(), array(
+                                <?php echo link_to('<span>добавить событие</span>', 'event_new', array(), array(
                                     'id' => 'add-event',
                                     'class' => 'ajax action',
                                 )) ?>
