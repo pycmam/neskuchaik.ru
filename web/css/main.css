@@ -201,10 +201,13 @@ label {
     margin-bottom: 15px;
 }
 
-#header {
+#header, #events-nav, #point-search {
     padding-top: 10px;
-    padding-bottom: 10px;
     border-top: 1px solid #fdfdfd;
+}
+
+#header, #events-nav, #point-items {
+    padding-bottom: 10px;
     border-bottom: 1px solid #ddd;
 }
 
@@ -396,7 +399,7 @@ h2.event-fire-at,
     display: block;
     float: left;
     width: 40px;
-    color: #33CC66;
+    color: #069E00;
 }
 
 .item.event .desc {
@@ -409,6 +412,55 @@ h2.event-fire-at,
     float: left;
     margin-right: 10px;
     margin-top: 0;
+}
+
+#events-nav span,
+#events-nav ul {
+    display: block;
+    float: left;
+}
+
+#events-nav ul li {
+    float: left;
+    margin-left: 10px;
+}
+
+#events-nav ul li a {
+    display: block;
+}
+
+#events-nav ul li.active a {
+    padding: 4px;
+}
+
+#events-nav ul li.green a {
+    color: #069E00;
+    border-color: #069E00;
+}
+
+#events-nav ul li.green.active a {
+    color: #fff;
+    background: #069E00;
+}
+
+#events-nav ul li.orange a {
+    color: #FF6633;
+    border-color: #FF6633;
+}
+
+#events-nav ul li.orange.active a {
+    color: #fff;
+    background: #FF6633;
+}
+
+#events-nav ul li.magenta a {
+    color: #CC00CC;
+    border-color: #CC00CC;
+}
+
+#events-nav ul li.magenta.active a {
+    color: #fff;
+    background: #CC00CC;
 }
 
 /* кнопки расшаривания */

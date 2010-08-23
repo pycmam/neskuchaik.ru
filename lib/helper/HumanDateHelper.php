@@ -8,7 +8,7 @@
  * @subpackage sfSonemBasePlugin
  * @author Рустам Миниахметов <pycmam@gmail.com>
  *
- * @todo прикрутить i18n
+ * @todo говнокод, прикрутить i18n
  */
 
 /**
@@ -49,8 +49,7 @@ function human_date($timestamp, $with_time = false, $with_year = true)
     $timestamp = strtotime($timestamp);
   }
 
-  //$timezone = 21600;
-  $timezone = 0;
+  $timezone = sfConfig::get('app_timezome_offset', 0);
 
   // родительный падеж
   $month = array( 1 => 'января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа',

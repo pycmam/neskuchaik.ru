@@ -7,10 +7,16 @@ class eventActions extends sfActions
      */
     public function executeIndex(sfWebRequest $request)
     {
-        $date = $request->getParameter('date', date('d.m.Y'));
+        $date = $request->getParameter('date', date('Y-m-d'));
+
+        $dates = array(
+            'today' => date('Y-m-d'),
+            'tomorrow' => date('Y-m-d', strtotime('+1 day')),
+            'datomorrow' => date('Y-m-d', strtotime('+2 days')),
+        );
 
         $this->events = EventTable::getInstance()
-            ->queryByDate($date)
+            ->queryByDate(isset($dates[$date]) ? $dates[$date] : $date)
             ->execute()
             ->getData();
     }

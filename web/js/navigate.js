@@ -2,8 +2,9 @@ $(function(){
     $('a.ajax').live('click', function() {
         var link = $(this);
         var point = map.getMap().getCenter();
+        var glue = link.attr('href').indexOf('?') > 0 ? '&' : '?';
         $.ajax({
-            url: link.attr('href') + '?geo_lat=' + point.lat() + '&geo_lng=' + point.lng(),
+            url: link.attr('href') + glue + 'geo_lat=' + point.lat() + '&geo_lng=' + point.lng(),
             type: link.hasClass('ajax-post') ? 'post' : 'get',
             dataType: 'html',
             cache: false,

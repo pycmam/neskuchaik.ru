@@ -43,11 +43,21 @@ place_comments:
 # События
 # ====================================================
 event:
-  url: /events
+  url: /events/:date
   class: sfRequestRoute
-  params: { module: event, action: index }
+  params: { module: event, action: index, date: today }
   requirements:
+    date: "today|tomorrow|datomorrow|\d{4}-\d{1,2}-\d{1,2}"
     sf_method: get
+
+event_date_today:
+  url: /events/today
+
+event_date_tomorrow:
+  url: /events/tomorrow
+
+event_date_datomorrow:
+  url: /events/datomorrow
 
 event_show:
   url: /event/:id
@@ -184,3 +194,7 @@ homepage:
   requirements:
     sf_method: get
 
+# sitemap.xml
+sitemap:
+  url: /sitemap.xml
+  param: { module: sfSimpleGoogleSitemap, action: index }

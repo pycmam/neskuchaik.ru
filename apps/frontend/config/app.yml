@@ -50,4 +50,60 @@ all:
         active_pattern: 'myContent[show@url=contacts]'
         link_attributes: { class: ajax hl }
 
+    # навигация по событиям
+    events:
+      today:
+        name:           сегодня
+        route:          event_date_today
+        active_pattern: 'event[index@date=today];event[index@date=]'
+        attributes:     { class: green }
+        link_attributes: { class: ajax }
+      tomorrow:
+        name:           завтра
+        route:          event_date_tomorrow
+        active_pattern: 'event[index@date=tomorrow]'
+        attributes:     { class: orange }
+        link_attributes: { class: ajax }
+      datomorrow:
+        name:           послезавтра
+        route:          event_date_datomorrow
+        active_pattern: 'event[index@date=datomorrow]'
+        attributes:     { class: magenta }
+        link_attributes: { class: ajax }
+
+  # настройки sitemap.xml
+  sfSimpleGoogleSitemap:
+    orm:                  Doctrine
+    urls:
+      homepage:
+        url:              homepage
+        freq:             weekly
+        priority:         0.8
+      about:
+        url:              page_about
+        freq:             weekly
+        priority:         0.5
+      contacts:
+        url:              page_contacts
+        freq:             weekly
+        priority:         0.5
+    models:
+      places:
+        model:            Place
+        module:           place
+        action:           show
+        params:           { id: getId }
+        date:             getUpdatedAt
+        freq:             weekly
+        priority:         1.0
+      events:
+        model:            Event
+        query_method:     queryActive
+        module:           event
+        action:           show
+        params:           { id: getId }
+        date:             getUpdatedAt
+        freq:             weekly
+        priority:         1.0
+
 

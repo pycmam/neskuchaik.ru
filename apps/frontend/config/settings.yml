@@ -65,6 +65,7 @@ all:
       - sfGuardAuth
       - sfRichMenu
       - myContent
+      - sfSimpleGoogleSitemap
 
   .actions:
     error_404_module:       main

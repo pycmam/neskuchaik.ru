@@ -13,6 +13,8 @@ all:
 
   google_map_default_coordinates: "56.76853, 54.1245"
 
+  timezone_offset: 14400 # 4h
+
   thumbnail:
     dir: /uploads/thumbnails
     types:
