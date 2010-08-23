@@ -30,6 +30,18 @@
         'class' => 'ajax',
     )) ?>
 </h2>
+
+<h2 class="place-follow">
+    <?php if ($place->hasFollower($sf_user->getGuardUser()->getId())): ?>
+        <?php echo link_to('Перестать следить', 'place_unfollow', $place, array(
+            'class' => 'ajax ajax-post',
+        )) ?>
+    <?php else: ?>
+        <?php echo link_to('Следить за событиями', 'place_follow', $place, array(
+            'class' => 'ajax ajax-post',
+        )) ?>
+    <?php endif ?>
+</h2>
 <?php endif ?>
 
 <?php include_partial('global/share', array('point' => $place)) ?>

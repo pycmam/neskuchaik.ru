@@ -86,7 +86,7 @@ class eventActions extends sfActions
         $event = $this->getRoute()->getObject();
         $user = $this->getUser()->getGuardUser();
 
-        if (! $event->hasAcceptFrom($user->id)) {
+        if (! $event->hasFollower($user->id)) {
             $accept = new PointUser();
             $accept->setPoint($event);
             $accept->setUser($user);
@@ -111,7 +111,7 @@ class eventActions extends sfActions
         $event = $this->getRoute()->getObject();
         $user = $this->getUser()->getGuardUser();
 
-        if ($accept = $event->hasAcceptFrom($user->id)) {
+        if ($accept = $event->hasFollower($user->id)) {
             $accept->delete();
         }
 

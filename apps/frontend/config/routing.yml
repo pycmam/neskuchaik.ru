@@ -24,6 +24,24 @@ place_create:
   requirements:
     sf_method: [put, post]
 
+place_follow:
+  url: /place/:id/follow
+  class: sfDoctrineRoute
+  options: { model: Place, type: object }
+  params: { module: place, action: follow }
+  requirements:
+    sf_method: [post]
+    id: \d+
+
+place_unfollow:
+  url: /place/:id/unfollow
+  class: sfDoctrineRoute
+  options: { model: Place, type: object }
+  params: { module: place, action: unfollow }
+  requirements:
+    sf_method: [post]
+    id: \d+
+
 place_js:
   url: /places.:sf_format
   class: sfRequestRoute

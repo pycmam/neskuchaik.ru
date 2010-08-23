@@ -5,11 +5,8 @@
  * @param Place $place
  */
 ?>
-<h2><?php echo $place ?></h2>
 
-<?php if ($description = $place->getDescription()): ?>
-    <p><?php echo nl2br($description) ?></p>
-<?php endif ?>
+<h2><?php echo $place ?></h2>
 
 <?php if ($count = count($events = $place->getActualEvents())): ?>
 <div class="place-infowindow-events">

@@ -8,6 +8,76 @@
             <source>Required.</source>
             <target>Обязательное поле.</target>
         </trans-unit>
+        <trans-unit>
+            <source>Invalid.</source>
+            <target>Некорректно.</target>
+        </trans-unit>
+
+        <trans-unit>
+            <source>less than a minute</source>
+            <target>меньше минуты</target>
+        </trans-unit>
+        <trans-unit>
+            <source>1 minute</source>
+            <target>одна минута</target>
+        </trans-unit>
+        
+        <trans-unit>
+            <source>less than 5 seconds</source>
+            <target>меньше 5 секунд</target>
+        </trans-unit>
+        <trans-unit>
+            <source>less than 10 seconds</source>
+            <target>меньше 10 секунд</target>
+        </trans-unit>
+        <trans-unit>
+            <source>less than 20 seconds</source>
+            <target>меньше 20 секунд</target>
+        </trans-unit>
+        <trans-unit>
+            <source>half a minute</source>
+            <target>полминуты</target>
+        </trans-unit>
+        <trans-unit>
+            <source>less than a minute</source>
+            <target>меньше минуты</target>
+        </trans-unit>
+        <trans-unit>
+            <source>%minutes% minutes</source>
+            <target>%minutes% минут</target>
+        </trans-unit>
+        <trans-unit>
+            <source>about 1 hour</source>
+            <target>около часа</target>
+        </trans-unit>
+        <trans-unit>
+            <source>about %hours% hours</source>
+            <target>около %hours% часов</target>
+        </trans-unit>
+        <trans-unit>
+            <source>1 day</source>
+            <target>один день</target>
+        </trans-unit>
+        <trans-unit>
+            <source>%days% days</source>
+            <target>%days% дней</target>
+        </trans-unit>
+        <trans-unit>
+            <source>about 1 month</source>
+            <target>около месяца</target>
+        </trans-unit>
+        <trans-unit>
+            <source>%months% months</source>
+            <target>%months% месяцев</target>
+        </trans-unit>
+        <trans-unit>
+            <source>about 1 year</source>
+            <target>около года</target>
+        </trans-unit>
+        <trans-unit>
+            <source>over %years% years</source>
+            <target>больше %years% лет</target>
+        </trans-unit>
     </body>
   </file>
 </xliff>

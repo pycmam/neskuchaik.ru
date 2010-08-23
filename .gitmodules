@@ -22,3 +22,4 @@
 [submodule "plugins/sfAdminDashPlugin"]
 	path = plugins/sfAdminDashPlugin
 	url = git@github.com:pycmam/sfAdminDashPlugin.git
+

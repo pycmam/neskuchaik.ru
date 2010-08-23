@@ -32,4 +32,4 @@ all:
 
   marker:
     dir: "/images/marker/"
-    icons: [movie, concert, dance, administration, education, clothes, eat, beer, star, theater]
+    icons: [movie, concert, dance, race, administration, education, clothes, market, eat, beer, star, theater, sport]

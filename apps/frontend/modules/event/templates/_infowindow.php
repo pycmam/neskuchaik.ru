@@ -5,13 +5,12 @@
  * @param Event $event
  */
 ?>
+
 <h2><?php echo $event ?></h2>
 
 <p><?php echo human_date($event->getFireAt(), true) ?></p>
 
-<?php if ($description = $event->getDescription()): ?>
-    <p><?php echo nl2br($description) ?></p>
-<?php endif ?>
+<p><?php echo distance_of_time_in_words(time(), strtotime($event->getFireAt())) ?></p>
 
 <div class="point-infowindow-desc">
     <?php echo link_to('<span>'.$event->getUser()->getUsername().'</span>', 'user_show', $event->getUser(), array(

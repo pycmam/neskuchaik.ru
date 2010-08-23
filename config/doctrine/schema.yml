@@ -50,7 +50,6 @@ Event:
       foreign: id
       foreignAlias: Events
       onDelete: CASCADE
-    
 
 # Место
 # =========================================================

@@ -12,6 +12,10 @@ class sfGuardUserForm extends PluginsfGuardUserForm
 {
     public function configure()
     {
+        $this->validatorSchema['email_address'] = new sfValidatorEmail(array(
+            'max_length' => 255,
+        ));
+
         $this->useFields(array('username', 'email_address', 'first_name', 'last_name'));
 
         $this->widgetSchema->setNameFormat('user[%s]');

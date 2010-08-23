@@ -12,6 +12,23 @@
  */
 class Point extends BasePoint
 {
+    /**
+     * Проверить следит ли пользователь за этим местом/событием
+     *
+     * @param integer $userId
+     * @return PointUser
+     */
+    public function hasFollower($userId)
+    {
+        $accept = PointUserTable::getInstance()
+            ->createQuery('a')
+            ->where('a.point_id = ?', $this->id)
+            ->andWhere('a.user_id = ?', (int) $userId)
+            ->fetchOne();
+
+        return $accept;
+    }
+
     public function __toString()
     {
         return (string) $this->getTitle();

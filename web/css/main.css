@@ -170,6 +170,7 @@ label {
 .form-item {
     margin-bottom: 5px;
     position: relative;
+    overflow: visible;
 }
 
 .content {
@@ -372,12 +373,18 @@ h2.event-fire-at,
 .point-desc,
 .event-users,
 .event-go,
+.place-follow,
 .place-add-event,
 .point-comments,
 .userlink,
 .place-events,
 #share-buttons {
     padding-left: 22px;
+}
+
+.event-go,
+.place-follow {
+    margin-bottom: 10px;
 }
 
 .point-desc {
@@ -573,6 +580,24 @@ h2.event-fire-at,
     height: 20px;
 }
 
+/* инфа юзера */
+
+h1.username {
+    height: 36px;
+    padding-top: 7px;
+    overflow: hidden;
+}
+
+h1.username img {
+    border: 1px solid #ddd;
+    padding: 1px;
+    float: left;
+}
+
+h1.username span {
+    margin-left: 10px;
+}
+
 /* постраничка */
 
 .pagination {
@@ -609,7 +634,6 @@ h2.event-fire-at,
     overflow: hidden;
     width: 28px;
     height: 43px;
-    z-index: 10;
 }
 
 .icon-changer img {
@@ -624,10 +648,11 @@ h2.event-fire-at,
 }
 
 .icon-changer:hover {
-    width: auto;
-    height: auto;
+    width: 196px;
+    height: 86px;
     border: 1px solid #d1d1d1;
     background: #fff;
+    z-index: 999;
 }
 
 .icon-changer:hover img {
@@ -670,5 +695,14 @@ h2.event-fire-at,
 }
 .icon-theater {
     background: url('/images/marker/theater.png') left center no-repeat;
+}
+.icon-race {
+    background: url('/images/marker/race.png') left center no-repeat;
+}
+.icon-market {
+    background: url('/images/marker/market.png') left center no-repeat;
+}
+.icon-sport {
+    background: url('/images/marker/sport.png') left center no-repeat;
 }
 

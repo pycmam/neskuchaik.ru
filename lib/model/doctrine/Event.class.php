@@ -12,20 +12,4 @@
  */
 class Event extends BaseEvent
 {
-    /**
-     * Проверить идет ли указанный юзер на событие
-     *
-     * @param integer $userId
-     * @return PointUser
-     */
-    public function hasAcceptFrom($userId)
-    {
-        $accept = PointUserTable::getInstance()
-            ->createQuery('a')
-            ->where('a.point_id = ?', $this->id)
-            ->andWhere('a.user_id = ?', (int) $userId)
-            ->fetchOne();
-
-        return $accept;
-    }
 }

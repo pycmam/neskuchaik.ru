@@ -89,7 +89,7 @@ class loginzaActions extends sfActions
         $identity = IdentityTable::getInstance()->findOneByIdentity($response->identity);
 
         if ($identity) {
-            $this->getUser()->signin($identity->getUser());
+            $this->getUser()->signin($identity->getUser(), true);
 
             return $this->redirect('homepage');
         } else {

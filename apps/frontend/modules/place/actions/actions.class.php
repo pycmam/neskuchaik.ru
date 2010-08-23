@@ -58,6 +58,56 @@ class placeActions extends sfActions
         $this->place = $this->getRoute()->getObject();
     }
 
+    /**
+     * Следить за событиями
+     */
+    public function executeFollow(sfWebRequest $request)
+    {
+        $place = $this->getRoute()->getObject();
+        $user = $this->getUser()->getGuardUser();
+
+        if (! $place->hasFollower($user->id)) {
+            $accept = new PointUser();
+            $accept->setPoint($place);
+            $accept->setUser($user);
+            $accept->save();
+        }
+
+        if ($request->isXmlHttpRequest()) {
+            return $this->renderPartial('place/show', array(
+                'place' => $place,
+                'move' => false, // не дергать карту
+            ));
+        } else {
+            return $this->redirect('place_show', $place);
+        }
+    }
+
+    /**
+     * Перестать следить
+     */
+    public function executeUnfollow(sfWebRequest $request)
+    {
+        $place = $this->getRoute()->getObject();
+        $user = $this->getUser()->getGuardUser();
+
+        if ($accept = $place->hasFollower($user->id)) {
+            $accept->delete();
+        }
+
+        // обновить событие
+        $place = PlaceTable::getInstance()->findOneById($place->id);
+
+        if ($request->isXmlHttpRequest()) {
+            return $this->renderPartial('place/show', array(
+                'place' => $place,
+                'move' => false, // не дергать карту
+            ));
+        } else {
+            return $this->redirect('place_show', $place);
+        }
+    }
+
 
     /**
      * Данные о местах в JSON

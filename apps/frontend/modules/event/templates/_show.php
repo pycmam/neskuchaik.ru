@@ -31,17 +31,24 @@ $move = isset($move) ? $move : true;
 <?php if ($count = count($users = $event->getUsers())): ?>
 <div class="event-users">
     <?php foreach ($users as $user): ?>
-        <?php echo link_to($user->getUsername(), 'user_show', $user, array('class' => 'ajax')) ?>
+        <?php echo link_to($user->getUsername(), 'user_show', $user, array(
+            'class' => 'ajax',
+            'title' => 'идет на это событие',
+        )) ?>
     <?php endforeach ?>
 </div>
 <?php endif ?>
 
 <?php if ($sf_user->isAuthenticated()): ?>
 <h2 class="event-go">
-    <?php if ($event->hasAcceptFrom($sf_user->getGuardUser()->getId())): ?>
-        <?php echo link_to('Я передумал идти', 'event_reject', $event, array('class' => 'ajax ajax-post')) ?>
+    <?php if ($event->hasFollower($sf_user->getGuardUser()->getId())): ?>
+        <?php echo link_to('Я передумал идти', 'event_reject', $event, array(
+            'class' => 'ajax ajax-post',
+        )) ?>
     <?php else: ?>
-        <?php echo link_to($count ? 'Я тоже пойду!' : 'Пойду первым!', 'event_accept', $event, array('class' => 'ajax ajax-post')) ?>
+        <?php echo link_to($count ? 'Я тоже пойду!' : 'Пойду первым!', 'event_accept', $event, array(
+            'class' => 'ajax ajax-post',
+        )) ?>
     <?php endif ?>
 </h2>
 <?php endif ?>
