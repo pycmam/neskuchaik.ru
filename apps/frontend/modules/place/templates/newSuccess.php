@@ -7,11 +7,11 @@
  */
 ?>
 
-<?php include_partial('global/movable.js') ?>
+<?php if ($sf_params->get('action') != 'create'): ?>
+    <?php include_partial('global/movable.js') ?>
+<?php endif ?>
 
 <h2>Отметить место</h2>
-
-<p>Перетащите маркер на карте в нужное место.</p>
 
 <?php echo jq_form_remote_tag(array(
     'url' => 'place_create',

@@ -17,16 +17,29 @@
 <?php if ($count = count($events = $place->getActualEvents())): ?>
 <div class="place-events">
     <h3>События (<?php echo $count ?>):</h3>
-    <?php include_partial('event/list', array('events' => $events)) ?>
+
+    <?php include_partial('event/list', array(
+        'events' => $events,
+    )) ?>
 </div>
 <?php endif ?>
 
 <?php if ($sf_user->isAuthenticated()): ?>
 <h2 class="place-add-event">
-    <?php echo link_to('Добавить событие', 'event_new', array('place' => $place->getId()), array('class' => 'ajax')) ?>
+    <?php echo link_to('Добавить событие', 'event_new', array('place' => $place->getId()), array(
+        'class' => 'ajax',
+    )) ?>
 </h2>
 <?php endif ?>
 
 <?php include_partial('global/share', array('point' => $place)) ?>
 
-<?php echo link_to('<span>комментарии</span>', 'place_comments', $place, array('class' => 'overlay point-comments')) ?>
+<?php echo link_to('<span>'.$place->getUser()->getUsername().'</span>', 'user_show', $place->getUser(), array(
+    'class' => 'ajax userlink',
+    'title' => 'отметил',
+)) ?>
+
+<?php echo link_to('<span>комментарии</span>', 'comment', $place, array(
+    'class' => 'overlay point-comments',
+    'rel' => '#overlay',
+)) ?>

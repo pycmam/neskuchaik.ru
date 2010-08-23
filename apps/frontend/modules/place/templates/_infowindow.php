@@ -8,7 +8,7 @@
 <h2><?php echo $place ?></h2>
 
 <?php if ($description = $place->getDescription()): ?>
-<p><?php echo nl2br($description) ?></p>
+    <p><?php echo nl2br($description) ?></p>
 <?php endif ?>
 
 <?php if ($count = count($events = $place->getActualEvents())): ?>
@@ -22,3 +22,15 @@
     <?php endforeach ?>
 </div>
 <?php endif ?>
+
+<div class="point-infowindow-desc">
+    <?php echo link_to('<span>'.$place->getUser()->getUsername().'</span>', 'user_show', $place->getUser(), array(
+        'class' => 'ajax userlink',
+        'title' => 'отметил',
+    )) ?>
+
+    <?php echo link_to('<span>комментарии</span>', 'comment', $place, array(
+        'class' => 'overlay point-comments',
+        'rel' => '#overlay',
+    )) ?>
+</div>

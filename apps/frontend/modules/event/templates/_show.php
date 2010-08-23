@@ -48,4 +48,13 @@ $move = isset($move) ? $move : true;
 
 <?php include_partial('global/share', array('point' => $event)) ?>
 
-<?php echo link_to('<span>комментарии</span>', 'event_comments', $event, array('class' => 'overlay point-comments')) ?>
+<?php echo link_to('<span>'.$event->getUser()->getUsername().'</span>', 'user_show', $event->getUser(), array(
+    'class' => 'ajax userlink',
+    'title' => 'опубликовал',
+)) ?>
+
+<?php echo link_to('<span>комментарии</span>', 'comment', $event, array(
+    'class' => 'overlay point-comments',
+    'rel' => '#overlay',
+)) ?>
+

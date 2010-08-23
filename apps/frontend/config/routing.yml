@@ -31,15 +31,6 @@ place_js:
   requirements:
     sf_method: get
 
-place_comments:
-  url: /place/:id/view
-  class: sfDoctrineRoute
-  options: { model: Place, type: object }
-  params: { module: place, action: show, full: true }
-  requirements:
-    sf_method: get
-    id: \d+
-
 # События
 # ====================================================
 event:
@@ -82,15 +73,6 @@ event_create:
   requirements:
     sf_method: [put, post]
 
-event_comments:
-  url: /event/:id/view
-  class: sfDoctrineRoute
-  options: { model: Event, type: object }
-  params: { module: event, action: show, full: true }
-  requirements:
-    sf_method: get
-    id: \d+
-
 event_accept:
   url: /event/:id/accept
   class: sfDoctrineRoute
@@ -109,10 +91,52 @@ event_reject:
     sf_method: [post]
     id: \d+
 
+# Комменты
+# ====================================================
+comment:
+  url: /comments/:id
+  class: sfDoctrineRoute
+  options: { model: Point, type: object }
+  params: { module: comment, action: index }
+  requirements:
+    sf_method: get
+    id: \d+
+
+comment_new:
+  url: /comments/:id/new
+  class: sfDoctrineRoute
+  options: { model: Point, type: object }
+  params: { module: comment, action: new }
+  requirements:
+    sf_method: get
+    id: \d+
+
+comment_create:
+  url: /comments/:id/new
+  class: sfDoctrineRoute
+  options: { model: Point, type: object }
+  params: { module: comment, action: create }
+  requirements:
+    sf_method: [put, post]
+    id: \d+
+
+comment_delete:
+  url: /comment/:id
+  class: sfDoctrineRoute
+  options: { model: Comment, type: object }
+  params: { module: comment, action: delete }
+  requirements:
+    sf_method: delete
+    id: \d+
+
 # Юзеры
 # ====================================================
 users:
   url: /users
+  class: sfRequestRoute
+  params: { module: user, action: index }
+  requirements:
+    sf_method: get
 
 user_show:
   url: /user/:username

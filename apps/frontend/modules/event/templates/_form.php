@@ -37,3 +37,9 @@ $(function(){
     <?php echo $form['description']->renderError() ?>
     <?php echo $form['description'] ?>
 </li>
+
+<li class="form-item checkbox">
+    <?php echo $form['iamgoing']->renderError() ?>
+    <?php echo $form['iamgoing'] ?>
+    <?php echo $form['iamgoing']->renderLabel('Я иду!') ?>
+</li>

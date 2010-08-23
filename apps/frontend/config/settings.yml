@@ -50,6 +50,7 @@ all:
       - myContent
       - jQuery
       - Partial
+      - Text
       - Date
       - HumanDate
       - Cache

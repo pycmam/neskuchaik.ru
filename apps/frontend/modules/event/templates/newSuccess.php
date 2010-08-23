@@ -10,10 +10,8 @@
 
 <h2>Добавить событие</h2>
 
-<?php if (! isset($place)): ?>
+<?php if (! isset($place) && $sf_params->get('action') != 'create'): ?>
     <?php include_partial('global/movable.js') ?>
-
-    <p>Перетащите маркер на карте в нужное место.</p>
 <?php endif ?>
 
 <?php if (isset($place)): ?>
@@ -30,6 +28,7 @@
         <?php include_partial('event/form', array('form' => $form)) ?>
         <li class="form-item">
             <input type="submit" value="Сохранить" />
+
             <?php echo link_to('Отмена', 'homepage', array(), array(
                 'class' => 'ajax',
                 'onclick' => 'map.getMarker().hide();',

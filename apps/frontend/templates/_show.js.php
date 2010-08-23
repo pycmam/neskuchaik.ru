@@ -13,12 +13,16 @@ $(function(){
     map.getMap().panTo(point);
     map.getMarker().hide();
 
-    <?php if (! 'event' == $point->getModel() && ! $point->getPlace()): ?>
+    <?php if ($point->getModel() != 'event' || ($point->getModel() == 'event' && !$point->getPlaceId())): ?>
     var marker = map.getPoint('<?php echo $point->getId() ?>');
     if (! marker) {
-        marker = map.createPoint(point, '<?php echo $point->getTitle() ?>', map.getIcon('<?php echo $point->getIcon() ?>'));
+        var marker = map.createPoint(point, '<?php echo $point->getTitle() ?>', map.getIcon('<?php echo $point->getIcon() ?>'));
+        GEvent.addListener(marker, 'click', function() {
+            <?php include_partial('global/listener.js', array('point' => $point)) ?>
+        });
     }
     <?php endif ?>
+
     map.getMap().openInfoWindowHtml(point, "<?php echo str_replace(array('"', "\n"), array('\"', " "), get_partial($point->getModel().'/infowindow', array($point->getModel() => $point)))  ?>");
 });
 </script>

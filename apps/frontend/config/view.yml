@@ -7,17 +7,20 @@ default:
     description: Интересные места и события прямо на карте города
 
   stylesheets:
-    - main.css
-    - jquery-ui.custom.css
+    - fp.css # packed
+#    - jquery-ui.custom.css
+#    - main.css
 
   javascripts:
     - http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js
-    - jquery-ui/jquery-ui.custom.min.js
-    - jquery-ui/jquery-ui.timepicker.min.js
-    - jquery-ui/i18n/ui.datepicker-ru.js
-    - jquery.cookie.js
-    - map.js
-    - navigate.js
+    - http://cdn.jquerytools.org/1.2.4/all/jquery.tools.min.js
+    - fp.js #packed
+#    - jquery-ui/jquery-ui.custom.min.js
+#    - jquery-ui/jquery-ui.timepicker.min.js
+#    - jquery-ui/i18n/ui.datepicker-ru.js
+#    - jquery.cookie.js
+#    - map.js
+#    - navigate.js
 
   has_layout:     true
   layout:         layout

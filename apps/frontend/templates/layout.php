@@ -70,5 +70,12 @@
         </div>
     </div>
 
+    <div id="overlay">
+        <div id="overlay-wrap">
+            <div class="content"></div>
+            <div class="loader"></div>
+        </div>
+    </div>
+
 </body>
 </html>
