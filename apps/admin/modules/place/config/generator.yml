@@ -13,9 +13,19 @@ generator:
 
     config:
       actions: ~
-      fields:  ~
-      list:    ~
+      fields:
+        title:            { label: Название }
+        icon:             { label: Значок }
+        description:      { label: Описание }
+        to_frontend:      { label: Перейти на сайт }
+        user_id:          { label: Юзер }
+      list: 
+        title:            Места <a href="#" onclick="jQuery('#sf_admin_bar').slideToggle('slow')">(поиск)</a>
+        display:          [_icon, title, _description, created_at, _to_frontend]
       filter:  ~
-      form:    ~
-      edit:    ~
-      new:     ~
+      form:
+        class:            PlaceAdminForm
+      edit:
+        title:            Редактирование "%%title%%"
+      new:
+        title:            Добавление

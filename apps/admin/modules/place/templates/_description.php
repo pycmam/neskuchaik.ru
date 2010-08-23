@@ -1,0 +1,1 @@
+<?php echo truncate_text($place->getDescription(), 150) ?>

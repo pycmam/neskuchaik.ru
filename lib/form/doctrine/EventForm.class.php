@@ -45,7 +45,7 @@ class EventForm extends BaseEventForm
     {
         parent::doUpdateObject($values);
 
-        if ($values['iamgoing']) {
+        if (isset($values['iamgoing']) && $values['iamgoing']) {
             $user = sfContext::getInstance()->getUser()->getGuardUser();
 
             if (! $this->object->hasAcceptFrom($user->getId())) {

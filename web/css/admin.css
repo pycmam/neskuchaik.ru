@@ -1,1 +1,45 @@
-﻿
+﻿/* гуглокарта */
+
+.google_map {
+    width: 700px;
+    height: 500px;
+}
+
+.sf_admin_form_row {
+    overflow: hidden;
+}
+
+/* селектор иконок */
+
+.icon-changer {
+    display: block;
+    overflow: hidden;
+    width: 28px;
+    height: 43px;
+}
+
+.icon-changer img {
+    display: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px 2px 2px 2px;
+}
+
+.icon-changer img.selected {
+    display: block;
+}
+
+.icon-changer:hover {
+    width: auto;
+    z-index: 999;
+    overflow: hidden;
+}
+
+.icon-changer:hover img {
+    display: block;
+    float: left;
+}
+
+.icon-changer:hover img.selected {
+    background: #d1d1d1;
+}

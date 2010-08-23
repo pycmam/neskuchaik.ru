@@ -53,6 +53,8 @@ all:
 
     # Helpers included in all templates by default
     standard_helpers:
+      - RemoteLink
+      - Text
       - Partial
       - Cache
       - I18N

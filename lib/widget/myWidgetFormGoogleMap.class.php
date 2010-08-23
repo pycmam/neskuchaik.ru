@@ -43,21 +43,19 @@ class myWidgetFormGoogleMap extends sfWidgetFormInputHidden
 
     function initialize()
     {
-        var map = new GMap2(document.getElementById("'.$this->generateId($name . '_canvas').'"), 10);';
+        var map = new GMap2(document.getElementById("'.$this->generateId($name . '_canvas').'"), 14);';
 
         if ($value) {
             $js .= '
-        map.setCenter(new GLatLng('.$value.'), 10);';
+        map.setCenter(new GLatLng('.$value.'), 14);';
         } else {
             $js .= '
-        map.setCenter(new GLatLng('.sfConfig::get('app_google_map_default_coordinates').'), 10);';
+        map.setCenter(new GLatLng('.sfConfig::get('app_google_map_default_coordinates').'), 14);';
         }
 
         $js .= '
-        map.addControl(new GOverviewMapControl());
-        map.addControl(new GLargeMapControl());
-        map.addControl(new GMapTypeControl());
-        map.enableScrollWheelZoom();
+        map.setUIToDefault();
+        map.setMapType(G_SATELLITE_MAP);
 
         var marker = new GMarker(map.getCenter(), {draggable: true});
 
@@ -74,6 +72,6 @@ class myWidgetFormGoogleMap extends sfWidgetFormInputHidden
 //]]>
 </script>';
 
-        return parent::render($name, $value = null, $attributes = array(), $errors = array()) . $js;
+        return parent::render($name, $value, $attributes = array(), $errors = array()) . $js;
     }
 }

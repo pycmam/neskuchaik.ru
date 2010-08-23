@@ -6,10 +6,17 @@ default:
     title:        Панель управления
 
   stylesheets:
-    - admin-packed.css
+    - /sfAdminDashPlugin/css/global.css
+    - /sfAdminDashPlugin/css/default.css
+    - jquery-ui.custom.css
+    - admin.css
+#    - admin-packed.css
 
   javascripts:
     - http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js
+    - jquery-ui/jquery-ui.custom.min.js
+    - jquery-ui/jquery-ui.timepicker.min.js
+    - jquery-ui/i18n/ui.datepicker-ru.js
     - /sfAdminDashPlugin/js/sf_admin_dash.js
     - tiny_mce/tiny_mce.js
     - admin.js
