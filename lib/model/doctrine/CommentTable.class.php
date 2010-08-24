@@ -30,4 +30,18 @@ class CommentTable extends Doctrine_Table
             ->leftJoin('a.User u')
             ->where('a.point_id = ?', (int) $pointId);
     }
+
+    /**
+     * Запрос для формирования feed-ленты
+     *
+     * @return Doctrine_Query
+     */
+    public function queryFeed()
+    {
+        return $this->createQuery('c')
+            ->select('c.*, p.id as point_id, p.title as title, c.comment as description, u.username as author_name')
+            ->leftJoin('c.User u')
+            ->leftJoin('c.Point p')
+            ->orderBy('c.created_at DESC');
+    }
 }

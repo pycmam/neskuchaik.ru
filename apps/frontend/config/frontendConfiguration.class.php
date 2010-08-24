@@ -26,6 +26,7 @@ class frontendConfiguration extends sfApplicationConfiguration
             'sfSimpleGoogleSitemapPlugin',
             'myContentPlugin',
             'sfRichMenuPlugin',
+            'sfFeedPlugin',
         );
 
         if ('test' == $this->getEnvironment()) {

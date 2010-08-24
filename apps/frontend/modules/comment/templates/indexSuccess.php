@@ -6,7 +6,13 @@
  */
 ?>
 
-<h2 class="title icon-<?php echo $point->getIcon() ?>"><?php echo $point ?></h2>
+<h2>
+    <?php echo link_to('Подписка на комментарии', 'feed_comments', $point, array(
+        'class' => 'feed block',
+        'title' => 'подписаться на комментарии',
+    )) ?>
+    <span><?php echo $point ?></span>
+</h2>
 
 <?php if (count($comments = $pager->getResults())): ?>
     <ul class="comments">

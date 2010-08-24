@@ -60,4 +60,15 @@ class EventTable extends PointTable
     {
         return $this->queryActive($q)->execute();
     }
+
+    /**
+     * Запрос для формирования feed-ленты
+     *
+     * @return Doctrine_Query
+     */
+    public function queryFeed()
+    {
+        return  $this->queryActive($q = parent::queryFeed())
+            ->orderBy($q->getRootAlias() . '.fire_at ASC');
+    }
 }

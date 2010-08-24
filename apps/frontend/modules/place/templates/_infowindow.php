@@ -6,7 +6,13 @@
  */
 ?>
 
-<h2><?php echo $place ?></h2>
+<h2>
+    <?php echo link_to('Подписка на события', 'feed_place_events', $place, array(
+        'class' => 'feed block',
+        'title' => 'подписаться на события',
+    )) ?>
+    <span><?php echo $place ?></span>
+</h2>
 
 <?php if ($count = count($events = $place->getActualEvents())): ?>
 <div class="place-infowindow-events">

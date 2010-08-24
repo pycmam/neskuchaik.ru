@@ -1,3 +1,51 @@
+# Feed-ленты
+# ====================================================
+
+# Комментарии
+feed_comments:
+  url: /feed/comments/:id
+  class: sfDoctrineRoute
+  options: { model: Point, type: object }
+  params: { module: feed, action: comments, sf_format: atom }
+  requirements:
+    sf_method: get
+    id: \d+
+
+# Места
+feed_places:
+  url: /feed/places
+  class: sfRequestRoute
+  params: { module: feed, action: places, sf_format: atom }
+  requirements:
+    sf_method: get
+
+# События
+feed_events:
+  url: /feed/events
+  class: sfRequestRoute
+  params: { module: feed, action: events, sf_format: atom }
+  requirements:
+    sf_method: get
+
+# События места
+feed_place_events:
+  url: /feed/place/:id/events
+  class: sfDoctrineRoute
+  options: { model: Place, type: object }
+  params: { module: feed, action: placeEvents, sf_format: atom }
+  requirements:
+    sf_method: get
+    id: \d+
+
+# События пользователя
+feed_user_events:
+  url: /feed/user/:id/events
+  class: sfDoctrineRoute
+  options: { model: sfGuardUser, type: object }
+  params: { module: feed, action: userEvents, sf_format: atom }
+  requirements:
+    sf_method: get
+    id: \d+
 
 # Места
 # ====================================================

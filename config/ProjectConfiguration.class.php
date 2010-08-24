@@ -30,6 +30,7 @@ class ProjectConfiguration extends sfProjectConfiguration
 
         // Escaper
         sfOutputEscaper::markClassesAsSafe(array(
+            'sfFeed',
             // some safe classes
         ));
     $this->enablePlugins('sfDoctrineGuardPlugin');

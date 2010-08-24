@@ -6,6 +6,15 @@ all:
 
   comments_per_page: 10
 
+  feeds:
+    default_parameters:
+      feed_type: atom1
+      title:  НеСкучайк!
+      link: "http://neskuchaik.ru"
+      author_name: neskuchaik
+      permalink_param_column: id
+      permalink_param_name: id
+
   loginza:
     widget_url: "https://loginza.ru/api/widget"
     token_url: loginza_auth
