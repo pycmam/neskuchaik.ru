@@ -27,13 +27,7 @@
 <?php endif ?>
 
 <div class="point-infowindow-desc">
-    <?php echo link_to('<span>'.$place->getUser()->getUsername().'</span>', 'user_show', $place->getUser(), array(
-        'class' => 'ajax userlink',
-        'title' => 'отметил',
-    )) ?>
-
-    <?php echo link_to('<span>комментарии</span>', 'comment', $place, array(
-        'class' => 'overlay point-comments',
-        'rel' => '#overlay',
-    )) ?>
+    <?php echo link_to_user($place->getUser()) ?>
+    <?php echo link_to_comments($place) ?>
+    <?php echo link_to_photos($place) ?>
 </div>

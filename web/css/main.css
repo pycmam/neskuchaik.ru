@@ -306,6 +306,7 @@ label {
 
 #actions a.action,
 .point-comments,
+.point-photos,
 .userlink {
     display: block;
     height: 16px;
@@ -315,19 +316,20 @@ label {
     border: 0;
 }
 
-#actions a.action,
-.point-comments {
+#actions a.action {
     width: 120px;
 }
 
 #actions a.action span,
 .point-comments span,
+.point-photos span,
 .userlink span {
     border-bottom: 1px dashed #618BBC;
 }
 
 #actions a.action:hover span,
 .point-comments:hover span,
+.point-photos:hover span,
 .userlink:hover span {
     border-bottom: 1px dashed #F69452;
 }
@@ -369,17 +371,22 @@ h2.title {
     padding-left: 32px;
 }
 
-h2.event-fire-at, 
+.event-fire-at, 
 .point-desc,
+.estimate-time,
 .event-users,
 .event-go,
-.place-follow,
-.place-add-event,
+.point-actions,
 .point-comments,
+.point-photos,
 .userlink,
 .place-events,
 #share-buttons {
     padding-left: 22px;
+}
+
+.event-fire-at {
+    margin-bottom: 0;
 }
 
 .event-go,
@@ -399,6 +406,7 @@ h2.event-fire-at,
 }
 
 .point-comments,
+.point-photos,
 .userlink,
 .point-comments:hover,
 .userlink:hover {
@@ -409,11 +417,19 @@ h2.event-fire-at,
 
 .point-comments {
     background: url('/images/comments.png') left top no-repeat;
-    width: 100px;
+}
+
+.point-photos {
+    background: url('/images/photo.png') left top no-repeat;
 }
 
 .userlink {
     background: url('/images/user.png') left top no-repeat;
+}
+
+.point-follow,
+.point-unfollow,
+.point-actions .event-new {
 }
 
 .place-infowindow-events h3 {
@@ -465,6 +481,7 @@ h2.event-fire-at,
 }
 
 .item .point-comments,
+.item .point-photos,
 .item .userlink {
     float: left;
     margin-right: 10px;
@@ -531,6 +548,7 @@ h2.event-fire-at,
     height: 405px;
     margin-bottom: 8px;
     overflow-y: scroll;
+    overflow: auto;
     border-bottom: 1px dashed #dfdfdf;
     clear: both;
 }
@@ -596,6 +614,42 @@ h1.username img {
 
 h1.username span {
     margin-left: 10px;
+}
+
+/* фотки */
+
+#point-photos li {
+    background: #fff;
+    display: block;
+    float: left;
+    width: 96px;
+    height: 96px;
+    padding: 2px;
+    margin: 0 10px 10px 0;
+    border: 1px solid #ddd;
+}
+
+#point-photos li:hover {
+    border: 1px solid #aaa;
+}
+
+#point-photos li img {
+    border: 0;
+}
+
+#image_list li .image-controls a {
+    font-size: 8pt;
+}
+
+#point-photos-container {
+    height: 410px;
+    margin-top: 10px;
+}
+
+.container-scrollable {
+    overflow: hidden;
+    overflow-y: scroll;
+    overflow: auto;
 }
 
 /* постраничка */

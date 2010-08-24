@@ -23,3 +23,9 @@
 	path = plugins/sfAdminDashPlugin
 	url = git@github.com:pycmam/sfAdminDashPlugin.git
 
+[submodule "plugins/sfReplicaThumbnailPlugin"]
+	path = plugins/sfReplicaThumbnailPlugin
+	url = git@github.com:pycmam/sfReplicaThumbnailPlugin.git
+[submodule "plugins/myImageUploadPlugin"]
+	path = plugins/myImageUploadPlugin
+	url = git@github.com:pycmam/myImageUploadPlugin.git

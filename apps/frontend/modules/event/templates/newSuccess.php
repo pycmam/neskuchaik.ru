@@ -26,13 +26,11 @@
 )) ?>
     <ul>
         <?php include_partial('event/form', array('form' => $form)) ?>
+
         <li class="form-item">
             <input type="submit" value="Сохранить" />
 
-            <?php echo link_to('Отмена', 'homepage', array(), array(
-                'class' => 'ajax',
-                'onclick' => 'map.getMarker().hide();',
-            )) ?>
+            <?php echo link_to_cancel() ?>
         </li>
     </ul>
 </form>

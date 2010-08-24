@@ -13,14 +13,8 @@
     <?php endif ?>
     <span class="event"><?php echo link_to($event, 'event_show', $event, array('class' => 'ajax')) ?></span>
     <div class="desc">
-        <?php echo link_to('<span>'.$event->getUser()->getUsername().'</span>', 'user_show', $event->getUser(), array(
-            'class' => 'ajax userlink',
-        )) ?>
-
-        <?php echo link_to('<span>комментарии</span>', 'comment', $event, array(
-            'class' => 'overlay point-comments',
-            'rel' => '#overlay',
-        )) ?>
+        <?php echo link_to_user($event->getUser()) ?>
+        <?php echo link_to_comments($event) ?>
     </div>
 </div>
 <?php endforeach ?>

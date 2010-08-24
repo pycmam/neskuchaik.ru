@@ -1,14 +1,26 @@
 <?php
 
-
+/**
+ * Точка на карте, базовый класс
+ */
 class PointTable extends myBaseTable
 {
-
+    /**
+     * Instance
+     *
+     * @return PointTable
+     */
     public static function getInstance()
     {
         return Doctrine_Core::getTable('Point');
     }
 
+    /**
+     * Активные точки
+     *
+     * @param Doctrine_Query $q
+     * @return Doctrine_Query
+     */
     public function queryActive(Doctrine_Query $q = null)
     {
         if (is_null($q)) {

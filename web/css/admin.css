@@ -1,4 +1,8 @@
-﻿/* гуглокарта */
+﻿#sf_admin_footer {
+    text-align: left;
+}
+
+/* гуглокарта */
 
 .google_map {
     width: 700px;

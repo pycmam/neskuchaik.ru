@@ -104,7 +104,7 @@ event:
   class: sfRequestRoute
   params: { module: event, action: index, date: today }
   requirements:
-    date: "today|tomorrow|datomorrow|\d{4}-\d{1,2}-\d{1,2}"
+    date: 'today|tomorrow|datomorrow|\d{4}-\d{1,2}-\d{1,2}'
     sf_method: get
 
 event_date_today:
@@ -139,20 +139,20 @@ event_create:
   requirements:
     sf_method: [put, post]
 
-event_accept:
-  url: /event/:id/accept
+event_follow:
+  url: /event/:id/follow
   class: sfDoctrineRoute
   options: { model: Event, type: object }
-  params: { module: event, action: accept }
+  params: { module: event, action: follow }
   requirements:
     sf_method: [post]
     id: \d+
 
-event_reject:
-  url: /event/:id/reject
+event_unfollow:
+  url: /event/:id/unfollow
   class: sfDoctrineRoute
   options: { model: Event, type: object }
-  params: { module: event, action: reject }
+  params: { module: event, action: unfollow }
   requirements:
     sf_method: [post]
     id: \d+
@@ -193,6 +193,56 @@ comment_delete:
   params: { module: comment, action: delete }
   requirements:
     sf_method: delete
+    id: \d+
+
+# Фотки
+# ====================================================
+photo:
+  url: /:model/:id/photo
+  class: sfDoctrineRoute
+  options: { model: Point, type: object }
+  params: { module: photo, action: index }
+  requirements:
+    sf_method: get
+    model: 'place|event'
+    id: \d+
+
+photo_edit:
+  url: /:model/:id/upload
+  class: sfDoctrineRoute
+  options: { model: Point, type: object, method_for_query: getWithOwnerCheck }
+  params: { module: photo, action: edit }
+  requirements:
+    sf_method: get
+    model: 'place|event'
+    id: \d+
+
+point_image_upload:
+  url: /point/:id/image
+  class: sfDoctrineRoute
+  options: { model: Point, type: object, method_for_query: getWithOwnerCheck }
+  params: { module: image, action: upload, prefix: point }
+  requirements:
+    sf_method: [post]
+    id: \d+
+
+point_image_primary:
+  url: /point/:id/image/:image
+  class: sfDoctrineRoute
+  options: { model: Point, type: object, method_for_query: getWithOwnerCheck }
+  params: { module: image, action: primary }
+  requirements:
+    sf_method: [post]
+    image: \d+
+    id: \d+
+
+point_image_delete:
+  url: /image/:id/delete
+  class: sfDoctrineRoute
+  options: { model: ImagePoint, type: object }
+  params: { module: image, action: delete }
+  requirements:
+    sf_method: [post]
     id: \d+
 
 # Юзеры

@@ -91,4 +91,17 @@ class myBaseTable extends Doctrine_Table
 
         return $q;
     }
+
+
+    /**
+     * Проверить, что выборка принадлежит текущему авторизованному пользователю
+     *
+     * @param  Doctrine_Query $q
+     * @param  string         $ownerColumn
+     * @return Doctrine_Collection
+     */
+    public function getWithOwnerCheck(Doctrine_Query $q, $ownerColumn = 'user_id')
+    {
+        return $this->withOwnerCheck($q, $ownerColumn)->execute();
+    }
 }

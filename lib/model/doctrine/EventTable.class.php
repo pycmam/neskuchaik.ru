@@ -1,15 +1,26 @@
 <?php
 
 /**
- * События
+ * Событие
  */
 class EventTable extends PointTable
 {
+    /**
+     * Instance
+     *
+     * @return EventTable
+     */
     public static function getInstance()
     {
         return Doctrine_Core::getTable('Event');
     }
 
+    /**
+     * Добавление сортировки по дате начала
+     *
+     * @param string $alias
+     * @return Doctrine_Query
+     */
     public function createQuery($alias = 'a')
     {
         return parent::createQuery($alias)
@@ -25,11 +36,19 @@ class EventTable extends PointTable
      */
     public function queryByDate($date, $alias = 'a')
     {
+        if (date('Y-m-d') == $date) {
+            $timeFrom = strtotime($date . date('H:i:s'));
+        } else {
+            $timeFrom = strtotime($date . ' 00:00:00');
+        }
+
+        $timeTo = strtotime($date . ' 23:59:59');
+
         return $this->createQuery($alias)
             ->leftJoin($alias . '.Place pl')
             ->where($alias . '.fire_at BETWEEN ? AND ?', array(
-                date('Y-m-d H:i:s', strtotime($date . ' 00:00:00')),
-                date('Y-m-d H:i:s', strtotime($date . ' 23:59:59')),
+                date('Y-m-d H:i:s', $timeFrom),
+                date('Y-m-d H:i:s', $timeTo),
              ));
     }
 
@@ -47,7 +66,7 @@ class EventTable extends PointTable
         }
 
         return $q->andWhere($q->getRootAlias() . '.is_active = 1')
-            ->andWhere($q->getRootAlias() . '.fire_at > NOW()');
+            ->andWhere($q->getRootAlias() . '.fire_at > ?', date('Y-m-d H:i:s'));
     }
 
     /**

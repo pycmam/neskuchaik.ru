@@ -29,8 +29,64 @@ class Point extends BasePoint
         return $accept;
     }
 
+
+    /**
+     * Фото
+     *
+     * @return Doctrine_Collection
+     */
+    public function getImages()
+    {
+        // кэшируем выборку фото в memcache
+        return Doctrine::getTable('ImagePoint')->queryByPoint($this)
+            ->useResultCache(true, sfConfig::get('app_doctrine_cache_lifespan'),
+                'my_point_images_' . $this->getId())
+            ->execute();
+    }
+
+
+    /**
+     * Возвращает главную фотку
+     *
+     * @return ImageRealty
+     */
+    public function getImage()
+    {
+        $images = $this->getImages();
+        return count($images) ? $images[0] : new ImagePoint();
+    }
+
+
+    /**
+     * Возвращает путь к превьюшке
+     *
+     * @param string $type
+     * @return string
+     */
+    public function getImagePath($type = 'thumb')
+    {
+        return $this->getImage()->getImagePath($type);
+    }
+
+
+    /**
+     * Чистим кэш
+     */
+    public function postSave($event)
+    {
+        myQuery::clearCache('my_point_images_' . $this->getId());
+    }
+
+    /**
+     * String presentation
+     *
+     * @return string
+     */
     public function __toString()
     {
         return (string) $this->getTitle();
     }
+
+
+
 }

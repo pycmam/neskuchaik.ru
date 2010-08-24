@@ -5,6 +5,27 @@
     <header/>
     <body>
       <trans-unit>
+        <source>Delete image</source>
+        <target>Удалить</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Set as primary</source>
+        <target>Основное</target>
+      </trans-unit>
+      <trans-unit>
+        <source>You can select multiple files. But not more than %count%.</source>
+        <target>Вы можете выбрать несколько файлов за раз, но не более %count%.</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Save an object to add photos.</source>
+        <target>Сохраните объект, чтобы загрузать изображения.</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Uploading file</source>
+        <target>Загрузка файла</target>
+      </trans-unit>
+
+      <trans-unit>
         <source>Ru</source>
         <target>По-русски</target>
       </trans-unit>
@@ -30,7 +51,6 @@
         <source>rent</source>
         <target>Аренда</target>
       </trans-unit>
-      
 
       <trans-unit>
         <source>Name</source>
@@ -139,6 +159,18 @@
       <trans-unit>
         <source>sfGuardPermission</source>
         <target>Привилегии</target>
+      </trans-unit>
+      <trans-unit>
+        <source>sfAdminDash</source>
+        <target>Панель управления</target>
+      </trans-unit>
+      <trans-unit>
+        <source>place</source>
+        <target>Места</target>
+      </trans-unit>
+      <trans-unit>
+        <source>event</source>
+        <target>События</target>
       </trans-unit>
     </body>
   </file>

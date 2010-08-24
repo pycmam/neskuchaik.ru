@@ -8,6 +8,7 @@ default:
   stylesheets:
     - /sfAdminDashPlugin/css/global.css
     - /sfAdminDashPlugin/css/default.css
+    - /myImageUploadPlugin/css/gallery.css
     - jquery-ui.custom.css
     - admin.css
 #    - admin-packed.css

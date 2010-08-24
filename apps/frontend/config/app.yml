@@ -111,6 +111,7 @@ all:
             timestamp: false
             files:
               - jquery-ui.custom.css
+              - /myImageUploadPlugin/css/gallery.css
               - main.css
 
   # настройки sitemap.xml

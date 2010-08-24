@@ -27,6 +27,8 @@ class frontendConfiguration extends sfApplicationConfiguration
             'myContentPlugin',
             'sfRichMenuPlugin',
             'sfFeedPlugin',
+            'sfReplicaThumbnailPlugin',
+            'myImageUploadPlugin',
         );
 
         if ('test' == $this->getEnvironment()) {

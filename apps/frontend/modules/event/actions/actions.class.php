@@ -81,7 +81,7 @@ class eventActions extends sfActions
     /**
      * Я иду!
      */
-    public function executeAccept(sfWebRequest $request)
+    public function executeFollow(sfWebRequest $request)
     {
         $event = $this->getRoute()->getObject();
         $user = $this->getUser()->getGuardUser();
@@ -106,7 +106,7 @@ class eventActions extends sfActions
     /**
      * Я передумал :-/
      */
-    public function executeReject(sfWebRequest $request)
+    public function executeUnfollow(sfWebRequest $request)
     {
         $event = $this->getRoute()->getObject();
         $user = $this->getUser()->getGuardUser();

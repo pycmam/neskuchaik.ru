@@ -8,6 +8,11 @@
     <?php include_stylesheets() ?>
     <?php include_javascripts() ?>
 
+    <meta name="google-site-verification" content="u7xEbYoMOeZGA1oocTp1GBUSLG4E5SRqFB3Cqzjzg7c" />
+    <meta name='yandex-verification' content='5972b14c58e6b3e3' />
+    <meta name="y_key" content="56274cc4d19c5832" />
+    <meta name="msvalidate.01" content="423FBA946C016B142AD68457C814988E" />
+
     <?php echo tag('link', array(
         'title' => 'Новые места',
         'type' => 'application/atom+xml',

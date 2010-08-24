@@ -24,6 +24,8 @@ $move = isset($move) ? $move : true;
 
 <h2 class="event-fire-at"><?php echo human_date($event->getFireAt(), true) ?></h2>
 
+<p class="estimate-time"><?php echo distance_of_time_in_words(time(), strtotime($event->getFireAt())) ?> до начала</p>
+
 <?php if ($description = $event->getDescription()): ?>
     <p class="point-desc"><?php echo nl2br($description) ?></p>
 <?php endif ?>
@@ -40,28 +42,12 @@ $move = isset($move) ? $move : true;
 <?php endif ?>
 
 <?php if ($sf_user->isAuthenticated()): ?>
-<h2 class="event-go">
-    <?php if ($event->hasFollower($sf_user->getGuardUser()->getId())): ?>
-        <?php echo link_to('Я передумал идти', 'event_reject', $event, array(
-            'class' => 'ajax ajax-post',
-        )) ?>
-    <?php else: ?>
-        <?php echo link_to($count ? 'Я тоже пойду!' : 'Пойду первым!', 'event_accept', $event, array(
-            'class' => 'ajax ajax-post',
-        )) ?>
-    <?php endif ?>
-</h2>
+    <div class="point-actions">
+        <h2><?php echo link_to_follow($event, $sf_user->getGuardUser(), 'Я иду!', 'Я передумал идти') ?></h2>
+    </div>
 <?php endif ?>
 
-<?php include_partial('global/share', array('point' => $event)) ?>
-
-<?php echo link_to('<span>'.$event->getUser()->getUsername().'</span>', 'user_show', $event->getUser(), array(
-    'class' => 'ajax userlink',
-    'title' => 'опубликовал',
-)) ?>
-
-<?php echo link_to('<span>комментарии</span>', 'comment', $event, array(
-    'class' => 'overlay point-comments',
-    'rel' => '#overlay',
-)) ?>
+<?php echo link_to_user($event->getUser()) ?>
+<?php echo link_to_comments($event) ?>
+<?php echo link_to_photos($event) ?>
 

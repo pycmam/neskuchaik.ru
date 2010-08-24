@@ -38,10 +38,11 @@ all:
       - default
       - sfAdminDash
       - sfGuardAuth
-      #- sfGuardUser
+      - sfGuardUser
       #- sfGuardGroup
       #- sfGuardPermission
       - myContentAdmin
+      - image
 
     # I18N
     charset:                utf-8

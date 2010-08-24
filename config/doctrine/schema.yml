@@ -17,6 +17,7 @@ Point:
     description:    { type: string }
     icon:           { type: string(25), notnull: true, default: star }
     tags:           { type: string }
+    image_id:       { type: integer }
 
   relations:
     User:
@@ -31,6 +32,11 @@ Point:
       local: point_id
       foreign: user_id
       foreignAlias: Points
+    PrimaryImage:
+      class: ImagePoint
+      local: image_id
+      autoComplete: false
+      onDelete: SET NULL
 
 # Событие
 # =========================================================

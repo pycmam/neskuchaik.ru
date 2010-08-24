@@ -6,11 +6,22 @@
 class CommentTable extends Doctrine_Table
 {
 
+    /**
+     * Instance
+     *
+     * @return CommentTable
+     */
     public static function getInstance()
     {
         return Doctrine_Core::getTable('Comment');
     }
 
+    /**
+     * Добавление сортировки по дате начала
+     *
+     * @param string $alias
+     * @return Doctrine_Query
+     */
     public function createQuery($alias = 'a')
     {
         return parent::createQuery($alias)

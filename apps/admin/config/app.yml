@@ -25,6 +25,10 @@ all:
             name:   События
             url:    event
             image:  event
+          users:
+            name:   Пользователи
+            url:    sfGuardUser
+            image:  users
       Settings:
         name:       Настройки
         items:

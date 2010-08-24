@@ -39,6 +39,11 @@ all:
       transport:
         class: Swift_MailTransport
 
+  storage:
+    class: myImageUploadSessionStorage
+    param:
+      session_name: neskuchaik
+
 #all:
 #  controller:
 #    class: sfFrontWebController

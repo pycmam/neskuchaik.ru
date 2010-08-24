@@ -11,25 +11,31 @@ all:
   .settings:
     domains: ['*']
 
+  # координаты гуглокарты по-умолчанию
   google_map_default_coordinates: "56.76853, 54.1245"
 
-  timezone_offset: 14400 # 4h
-
-  thumbnail:
-    dir: /uploads/thumbnails
-    types:
-      # превьюшки
-      thumb:
-        default: /images/default/nophoto32x32.png
-        mimetype: image/jpeg
-        macro:
-          Replica_Macro_ThumbnailFixed: [32, 32, center, center]
+  # смещение времени
+  timezone_offset: 0
 
   host:
     script_name: false
     admin:       "admin.%s"
     frontend:    "%s"
 
+  # маркеры
   marker:
     dir: "/images/marker/"
     icons: [movie, concert, dance, race, administration, education, clothes, market, eat, beer, star, theater, sport]
+
+  # настройки превьюшек
+  thumbnail:
+    dir: /uploads/thumbnails
+    types:
+      thumb:
+        mimetype: image/jpeg
+        macro:
+          Replica_Macro_ThumbnailFixed: [96, 96, center, center]
+      full:
+        mimetype: image/jpeg
+        macro:
+          Replica_Macro_ThumbnailFit: [1024, 768]

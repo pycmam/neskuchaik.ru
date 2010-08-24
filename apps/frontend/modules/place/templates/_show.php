@@ -25,33 +25,12 @@
 <?php endif ?>
 
 <?php if ($sf_user->isAuthenticated()): ?>
-<h2 class="place-add-event">
-    <?php echo link_to('Добавить событие', 'event_new', array('place' => $place->getId()), array(
-        'class' => 'ajax',
-    )) ?>
-</h2>
-
-<h2 class="place-follow">
-    <?php if ($place->hasFollower($sf_user->getGuardUser()->getId())): ?>
-        <?php echo link_to('Перестать следить', 'place_unfollow', $place, array(
-            'class' => 'ajax ajax-post',
-        )) ?>
-    <?php else: ?>
-        <?php echo link_to('Следить за событиями', 'place_follow', $place, array(
-            'class' => 'ajax ajax-post',
-        )) ?>
-    <?php endif ?>
-</h2>
+    <div class="point-actions">
+        <h2><?php echo link_to_event_new($place) ?></h2>
+        <h2><?php echo link_to_follow($place, $sf_user->getGuardUser(), 'Следить за событиями', 'Перестать следить') ?></h2>
+    </div>
 <?php endif ?>
 
-<?php include_partial('global/share', array('point' => $place)) ?>
-
-<?php echo link_to('<span>'.$place->getUser()->getUsername().'</span>', 'user_show', $place->getUser(), array(
-    'class' => 'ajax userlink',
-    'title' => 'отметил',
-)) ?>
-
-<?php echo link_to('<span>комментарии</span>', 'comment', $place, array(
-    'class' => 'overlay point-comments',
-    'rel' => '#overlay',
-)) ?>
+<?php echo link_to_user($place->getUser()) ?>
+<?php echo link_to_comments($place) ?>
+<?php echo link_to_photos($place) ?>

@@ -47,13 +47,13 @@ all:
 
     # Helpers included in all templates by default
     standard_helpers:
+      - Frontend
       - myContent
       - jQuery
       - Partial
       - Text
       - Date
       - HumanDate
-      - Cache
       - I18N
 
     # i18n
@@ -67,6 +67,7 @@ all:
       - sfRichMenu
       - myContent
       - sfSimpleGoogleSitemap
+      - image
 
   .actions:
     error_404_module:       main

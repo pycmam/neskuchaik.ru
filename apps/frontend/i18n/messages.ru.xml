@@ -14,6 +14,27 @@
         </trans-unit>
 
         <trans-unit>
+          <source>Delete image</source>
+          <target>Удалить</target>
+        </trans-unit>
+        <trans-unit>
+          <source>Set as primary</source>
+          <target>Основное</target>
+        </trans-unit>
+        <trans-unit>
+          <source>You can select multiple files. But not more than %count%.</source>
+          <target>Вы можете выбрать несколько файлов за раз, но не более %count%.</target>
+        </trans-unit>
+        <trans-unit>
+          <source>Save an object to add photos.</source>
+          <target>Сохраните объект, чтобы загрузать изображения.</target>
+        </trans-unit>
+        <trans-unit>
+          <source>Uploading file</source>
+          <target>Загрузка файла</target>
+        </trans-unit>
+
+        <trans-unit>
             <source>less than a minute</source>
             <target>меньше минуты</target>
         </trans-unit>
@@ -21,7 +42,7 @@
             <source>1 minute</source>
             <target>одна минута</target>
         </trans-unit>
-        
+
         <trans-unit>
             <source>less than 5 seconds</source>
             <target>меньше 5 секунд</target>

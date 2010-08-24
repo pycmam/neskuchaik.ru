@@ -1,13 +1,32 @@
-# Пользователи сайта
-# =============================================================================
-user:
-  class: sfDoctrineRouteCollection
-  options:
-    model:                User
-    module:               user
-    prefix_path:          /user
-    column:               id
-    with_wildcard_routes: true
+# Загрузка изображений
+# ====================================================
+point_image_upload:
+  url: /image/upload/:id
+  class: sfDoctrineRoute
+  options: { model: Point, type: object }
+  params: { module: image, action: upload, prefix: point }
+  requirements:
+    sf_method: [post]
+    id: \d+
+
+point_image_delete:
+  url: /image/delete/:id
+  class: sfDoctrineRoute
+  options: { model: ImagePoint, type: object }
+  params: { module: image, action: delete }
+  requirements:
+    sf_method: [post]
+    id: \d+
+
+point_image_primary:
+  url: /image/:id/:image
+  class: sfDoctrineRoute
+  options: { model: Point, type: object }
+  params: { module: image, action: primary }
+  requirements:
+    sf_method: [post]
+    image: \d+
+    id: \d+
 
 # События
 # =============================================================================
