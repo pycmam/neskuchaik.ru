@@ -3,3 +3,9 @@ new:
 
 create:
   is_secure: true
+
+follow:
+  is_secure: true
+
+unfollow:
+  is_secure: true

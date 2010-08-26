@@ -35,7 +35,7 @@ abstract class myFunctionalTestCase extends sfPHPUnitFunctionalTestCase
     protected function authenticateUser(sfGuardUser $user = null)
     {
         if (is_null($user)) {
-            $user = $this->helper->makeUserWithProfile(true);
+            $user = $this->helper->makeUser(true);
         }
 
         // При создании браузера инициализируется сессия

@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * События
+ */
 class eventActions extends sfActions
 {
     /**
@@ -61,13 +64,42 @@ class eventActions extends sfActions
     public function executeCreate(sfWebRequest $request)
     {
         $this->executeNew($request);
+        $this->setTemplate('new');
+        return $this->processForm($this->form, $request);
+    }
 
-        $this->form->bind($request->getParameter($this->form->getName()));
-        if ($this->form->isValid()) {
-            $event = $this->form->save();
-        }
+    /**
+     * Редактировать
+     */
+    public function executeEdit()
+    {
+        $this->event = $this->getRoute()->getObject();
+        $this->form = new EventForm($this->event);
+    }
 
-        if (! $this->form->hasErrors()) {
+    /**
+     * Обновить
+     */
+    public function executeUpdate(sfWebRequest $request)
+    {
+        $this->executeEdit();
+        $this->setTemplate('edit');
+        return $this->processForm($this->form, $request);
+    }
+
+    /**
+     * Обработка формы
+     *
+     * @param EventForm $form
+     * @param sfWebRequest $request
+     */
+    protected function processForm(EventForm $form, sfWebRequest $request)
+    {
+        $form->bind($request->getParameter($form->getName()));
+
+        if ($form->isValid()) {
+            $event = $form->save();
+
             if ($request->isXmlHttpRequest()) {
                 return $this->renderPartial('event/show', array('event' => $event));
             } else {
@@ -75,7 +107,7 @@ class eventActions extends sfActions
             }
         }
 
-        $this->setTemplate('new');
+        return sfView::SUCCESS;
     }
 
     /**

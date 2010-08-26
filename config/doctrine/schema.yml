@@ -49,6 +49,7 @@ Event:
   columns:
     place_id:    { type: integer }
     fire_at:     { type: timestamp, notnull: true }
+    last_fire_at: { type: timestamp }
     is_active:   { type: boolean, notnull: true, default: true }
   relations:
     Place:

@@ -24,7 +24,7 @@ class EventForm extends BaseEventForm
 
         $this->useFields(array('title', 'icon', 'description', 'fire_at', 'iamgoing', 'geo_lat', 'geo_lng', 'place_id'));
 
-        $this->setDefault('fire_at', date('d.m.Y', strtotime('+1 day')) . ' 12:00');
+        $this->setDefault('fire_at', date('d.m.Y H:i', strtotime('+1 hour')));
 
         $this->widgetSchema->setNameFormat('point[%s]');
     }
@@ -34,21 +34,27 @@ class EventForm extends BaseEventForm
      */
     public function updateDefaultsFromObject()
     {
+        parent::updateDefaultsFromObject();
+
         if (! $this->object->isNew()) {
             $this->setDefault('fire_at', date('d.m.Y H:i', strtotime($this->object->getFireAt())));
         }
-
-        parent::updateDefaultsFromObject();
     }
 
     protected function doUpdateObject($values)
     {
+        // событие перенесено?
+        if (strtotime($this->object->getFireAt()) != strtotime($values['fire_at'])) {
+            $values['last_fire_at'] = $this->object->getFireAt();
+        }
+
         parent::doUpdateObject($values);
 
+        // "я иду"
         if (isset($values['iamgoing']) && $values['iamgoing']) {
             $user = sfContext::getInstance()->getUser()->getGuardUser();
 
-            if (! $this->object->hasAcceptFrom($user->getId())) {
+            if (! $this->object->hasFollower($user->getId())) {
                 $accept = new PointUser();
                 $accept->setPoint($this->object);
                 $accept->setUser($user);

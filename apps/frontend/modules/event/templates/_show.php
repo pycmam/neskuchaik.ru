@@ -47,6 +47,9 @@ $move = isset($move) ? $move : true;
     </div>
 <?php endif ?>
 
+<!--
+<?php echo link_to_event_edit($event) ?>
+-->
 <?php echo link_to_user($event->getUser()) ?>
 <?php echo link_to_comments($event) ?>
 <?php echo link_to_photos($event) ?>

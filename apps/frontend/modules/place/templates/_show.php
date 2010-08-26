@@ -31,6 +31,9 @@
     </div>
 <?php endif ?>
 
+<!--
+<?php echo link_to_place_edit($place) ?>
+-->
 <?php echo link_to_user($place->getUser()) ?>
 <?php echo link_to_comments($place) ?>
 <?php echo link_to_photos($place) ?>

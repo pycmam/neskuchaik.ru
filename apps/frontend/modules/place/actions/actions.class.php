@@ -13,6 +13,14 @@ class placeActions extends sfActions
     }
 
     /**
+     * Показать
+     */
+    public function executeShow()
+    {
+        $this->place = $this->getRoute()->getObject();
+    }
+
+    /**
      * Добавить
      */
     public function executeNew(sfWebRequest $request)
@@ -33,13 +41,42 @@ class placeActions extends sfActions
     public function executeCreate(sfWebRequest $request)
     {
         $this->executeNew($request);
+        $this->setTemplate('new');
+        return $this->processForm($this->form, $request);
+    }
 
-        $this->form->bind($request->getParameter($this->form->getName()));
-        if ($this->form->isValid()) {
-            $place = $this->form->save();
-        }
+    /**
+     * Редактировать
+     */
+    public function executeEdit()
+    {
+        $this->place = $this->getRoute()->getObject();
+        $this->form = new PlaceForm($this->place);
+    }
 
-        if (! $this->form->hasErrors()) {
+    /**
+     * Обновить
+     */
+    public function executeUpdate(sfWebRequest $request)
+    {
+        $this->executeEdit();
+        $this->setTemplate('edit');
+        return $this->processForm($this->form, $request);
+    }
+
+    /**
+     * Обработка формы
+     *
+     * @param PlaceForm $form
+     * @param sfWebRequest $request
+     */
+    protected function processForm(PlaceForm $form, sfWebRequest $request)
+    {
+        $form->bind($request->getParameter($form->getName()));
+
+        if ($form->isValid()) {
+            $place = $form->save();
+
             if ($request->isXmlHttpRequest()) {
                 return $this->renderPartial('place/show', array('place' => $place));
             } else {
@@ -47,15 +84,7 @@ class placeActions extends sfActions
             }
         }
 
-        $this->setTemplate('new');
-    }
-
-    /**
-     * Показать
-     */
-    public function executeShow()
-    {
-        $this->place = $this->getRoute()->getObject();
+        return sfView::SUCCESS;
     }
 
     /**
@@ -110,7 +139,7 @@ class placeActions extends sfActions
 
 
     /**
-     * Данные о местах в JSON
+     * Скрипт инициализации маркеров на карте
      */
     public function executePlaces()
     {

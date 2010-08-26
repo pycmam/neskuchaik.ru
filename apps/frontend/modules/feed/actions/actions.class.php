@@ -152,6 +152,7 @@ class feedActions extends sfActions
         }
 
         $this->feed = $feed;
+        $this->getContext()->getResponse()->setContentType($feed->getContentType());
         $this->setTemplate('feed');
     }
 }

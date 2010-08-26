@@ -6,6 +6,23 @@
 class myTestObjectHelper extends sfPHPUnitObjectHelper
 {
     /**
+     * Создать sfGuardUser
+     */
+    public function makeUser($save = false, array $props = array())
+    {
+        $defaultProps = array(
+            'username' => 'username-' . $this->getUniqueCounter(),
+            'email_address' => $this->makeEmail(),
+            'first_name' => $this->makeText('first name'),
+            'last_name' => $this->makeText('last name'),
+            'password' => 1,
+        );
+        $props = array_merge($defaultProps, $props);
+
+        return $this->makeModel('sfGuardUser', $props, $save);
+    }
+
+    /**
      * Создать sfGuardGroup
      */
     public function makeGuardGroup($save = false, array $props = array())
@@ -74,6 +91,85 @@ class myTestObjectHelper extends sfPHPUnitObjectHelper
 
         return $this->makeModel('sfGuardUserPermission', $props, $save);
     }
+
+    /**
+     * Создать Place
+     */
+    public function makePlace(sfGuardUser $user, $save = false, array $props = array())
+    {
+        $defaultProps = array(
+            'user_id' => $user->getId(),
+            'title' => $this->makeText('title', false),
+            'description' => $this->makeText('description', false),
+            'icon' => 'star',
+        );
+        $props = array_merge($defaultProps, $props);
+
+        return $this->makeModel('Place', $props, $save);
+    }
+
+    /**
+     * Создать Event
+     */
+    public function makeEvent(sfGuardUser $user, $save = false, array $props = array())
+    {
+        $defaultProps = array(
+            'user_id' => $user->getId(),
+            'title' => $this->makeText('title', false),
+            'description' => $this->makeText('description', false),
+            'fire_at' => date('Y-m-d H:i:s', strtotime('+1 day')),
+            'icon' => 'star',
+        );
+        $props = array_merge($defaultProps, $props);
+
+        return $this->makeModel('Event', $props, $save);
+    }
+
+    /**
+     * Создать Comment
+     */
+    public function makeComment(Point $point, sfGuardUser $user, $save = false, array $props = array())
+    {
+        $defaultProps = array(
+            'user_id' => $user->id,
+            'point_id' => $point->id,
+            'comment' => $this->makeText('comment', false),
+        );
+        $props = array_merge($defaultProps, $props);
+
+        return $this->makeModel('Comment', $props, $save);
+    }
+
+    /**
+     * Создать PointUser
+     */
+    public function makePointUser(Point $point, sfGuardUser $user, $save = false, array $props = array())
+    {
+        $defaultProps = array(
+            'user_id' => $user->getId(),
+            'point_id' => $point->getId(),
+        );
+        $props = array_merge($defaultProps, $props);
+
+        return $this->makeModel('PointUser', $props, $save);
+    }
+
+    /**
+     * Создать Identity
+     */
+    public function makeIdentity(sfGuardUser $user, $save = false, array $props = array())
+    {
+        $defaultProps = array(
+            'user_id' => $user->getId(),
+            'identity' => $this->makeText('identity'),
+            'provider' => $this->makeText('provider'),
+        );
+        $props = array_merge($defaultProps, $props);
+
+        return $this->makeModel('Identity', $props, $save);
+    }
+
+
 
     /**
      * Создать email

@@ -1,6 +1,14 @@
 # Feed-ленты
 # ====================================================
 
+# Последние комментарии
+feed_last_comments:
+  url: /feed/comments
+  class: sfRequestRoute
+  params: { module: feed, action: lastComments, sf_format: atom }
+  requirements:
+    sf_method: get
+
 # Комментарии к чему-то
 feed_comments:
   url: /feed/comments/:id
@@ -10,14 +18,6 @@ feed_comments:
   requirements:
     sf_method: get
     id: \d+
-
-# Последние комментарии
-feed_last_comments:
-  url: /feed/comments
-  class: sfRequestRoute
-  params: { module: feed, action: lastComments, sf_format: atom }
-  requirements:
-    sf_method: get
 
 # Места
 feed_places:
@@ -80,6 +80,24 @@ place_create:
   requirements:
     sf_method: [put, post]
 
+place_edit:
+  url: /place/:id/edit
+  class: sfDoctrineRoute
+  options: { model: Place, type: object, method_for_query: getWithOwnerCheck }
+  params: { module: place, action: edit }
+  requirements:
+    sf_method: get
+    id: \d+
+
+place_update:
+  url: /place/:id/edit
+  class: sfDoctrineRoute
+  options: { model: Place, type: object, method_for_query: getWithOwnerCheck }
+  params: { module: place, action: update }
+  requirements:
+    sf_method: [put, post]
+    id: \d+
+
 place_follow:
   url: /place/:id/follow
   class: sfDoctrineRoute
@@ -96,6 +114,15 @@ place_unfollow:
   params: { module: place, action: unfollow }
   requirements:
     sf_method: [post]
+    id: \d+
+
+place_delete:
+  url: /place/:id/delete
+  class: sfDoctrineRoute
+  options: { model: Place, type: object, method_for_query: getWithOwnerCheck }
+  params: { module: place, action: delete }
+  requirements:
+    sf_method: post
     id: \d+
 
 place_js:
@@ -147,6 +174,24 @@ event_create:
   requirements:
     sf_method: [put, post]
 
+event_edit:
+  url: /event/:id/edit
+  class: sfDoctrineRoute
+  options: { model: Event, type: object, method_for_query: getWithOwnerCheck }
+  params: { module: event, action: edit }
+  requirements:
+    sf_method: get
+    id: \d+
+
+event_update:
+  url: /event/:id/edit
+  class: sfDoctrineRoute
+  options: { model: Event, type: object, method_for_query: getWithOwnerCheck }
+  params: { module: event, action: update }
+  requirements:
+    sf_method: [put, post]
+    id: \d+
+
 event_follow:
   url: /event/:id/follow
   class: sfDoctrineRoute
@@ -163,6 +208,15 @@ event_unfollow:
   params: { module: event, action: unfollow }
   requirements:
     sf_method: [post]
+    id: \d+
+
+event_delete:
+  url: /event/:id/delete
+  class: sfDoctrineRoute
+  options: { model: Event, type: object, method_for_query: getWithOwnerCheck }
+  params: { module: event, action: delete }
+  requirements:
+    sf_method: post
     id: \d+
 
 # Комменты
@@ -194,13 +248,31 @@ comment_create:
     sf_method: [put, post]
     id: \d+
 
+#comment_edit:
+#  url: /comment/:id
+#  class: sfDoctrineRoute
+#  options: { model: Comment, type: object, method_for_query: getWithOwnerCheck  }
+#  params: { module: comment, action: edit }
+#  requirements:
+#    sf_method: get
+#    id: \d+
+#
+#comment_update:
+#  url: /comment/:id
+#  class: sfDoctrineRoute
+#  options: { model: Comment, type: object, method_for_query: getWithOwnerCheck }
+#  params: { module: comment, action: update }
+#  requirements:
+#    sf_method: [put, post]
+#    id: \d+
+
 comment_delete:
-  url: /comment/:id
+  url: /comment/:id/delete
   class: sfDoctrineRoute
-  options: { model: Comment, type: object }
+  options: { model: Comment, type: object, method_for_query: getWithOwnerCheck }
   params: { module: comment, action: delete }
   requirements:
-    sf_method: delete
+    sf_method: post
     id: \d+
 
 # Фотки
