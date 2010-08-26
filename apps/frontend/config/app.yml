@@ -9,7 +9,7 @@ all:
   feeds:
     default_parameters:
       feed_type: atom1
-      title:  НеСкучайк!
+      title:  НеcкуЧайк!
       link: "http://neskuchaik.ru"
       author_name: neskuchaik
       permalink_param_column: id
@@ -81,7 +81,7 @@ all:
         active_pattern: 'event[index@date=datomorrow]'
         attributes:     { class: magenta }
         link_attributes: { class: ajax }
-  
+
   # настройка оптимизатора ресурсов
   np_assets_optimizer_plugin:
     enabled: true

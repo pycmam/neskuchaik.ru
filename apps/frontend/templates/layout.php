@@ -8,10 +8,7 @@
     <?php include_stylesheets() ?>
     <?php include_javascripts() ?>
 
-    <meta name="google-site-verification" content="u7xEbYoMOeZGA1oocTp1GBUSLG4E5SRqFB3Cqzjzg7c" />
-    <meta name='yandex-verification' content='5972b14c58e6b3e3' />
-    <meta name="y_key" content="56274cc4d19c5832" />
-    <meta name="msvalidate.01" content="423FBA946C016B142AD68457C814988E" />
+    <?php /** rss-фиды */?>
 
     <?php echo tag('link', array(
         'title' => 'Новые места',
@@ -27,23 +24,27 @@
         'href' => url_for('feed_events'),
     )) ?>
 
+    <?php echo tag('link', array(
+        'title' => 'Последние комментарии',
+        'type' => 'application/atom+xml',
+        'rel' => 'alternate',
+        'href' => url_for('feed_last_comments'),
+    )) ?>
+
     <?php include_partial('global/ga') ?>
 </head>
 <body onunload="GUnload()">
-
     <div id="map-layout">
         <div id="map">
             <?php include_partial('global/map') ?>
         </div>
 
         <div id="sidebar">
-            <div class="content">
-                <!-- меню -->
+            <div id="sidebar-wrap">
                 <ul id="main-menu" class="menu">
                     <?php include_component('sfRichMenu', 'menu', array('menu' => 'header')) ?>
                 </ul>
 
-                <!-- лого, профиль -->
                 <div id="header">
                     <a id="logo" href="<?php echo url_for('homepage') ?>"></a>
 
@@ -69,7 +70,6 @@
                     </div>
                 </div>
 
-                <!-- контент -->
                 <div id="content">
                     <div class="content">
                         <?php echo $sf_content ?>
@@ -86,6 +86,5 @@
             <div class="loader"></div>
         </div>
     </div>
-
 </body>
 </html>

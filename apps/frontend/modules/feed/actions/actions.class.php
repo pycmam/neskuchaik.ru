@@ -36,7 +36,7 @@ class feedActions extends sfActions
     }
 
     /**
-     * Комментарии
+     * Комментарии к чему-то
      */
     public function executeComments()
     {
@@ -49,6 +49,23 @@ class feedActions extends sfActions
 
         $this->buildFeed($comments, array(
             'title' => sprintf('Комментарии к "%s" | НеСкучайк!', $point->title),
+            'permalink_url' => 'comment',
+            'permalink_param_name' => 'id',
+            'permalink_param_column' => 'point_id',
+        ));
+    }
+
+    /**
+     * Последние комментарии
+     */
+    public function executeLastComments()
+    {
+        $comments = CommentTable::getInstance()->queryFeed()
+            ->limit(sfConfig::get('app_feeds_last_comments_count', 30))
+            ->execute(array(), Doctrine::HYDRATE_ARRAY);
+
+        $this->buildFeed($comments, array(
+            'title' => 'Последние комментарии | НеСкучайк!',
             'permalink_url' => 'comment',
             'permalink_param_name' => 'id',
             'permalink_param_column' => 'point_id',
@@ -127,7 +144,7 @@ class feedActions extends sfActions
                 $item->setAuthorEmail($row['author_email']);
             }
 
-            $item->setPubdate(date('U', strtotime($row['created_at'])));
+            $item->setPubdate(strtotime($row['created_at']) - date('Z', strtotime($row['created_at'])));
             $item->setUniqueId($row['id']);
             $item->setDescription($row['description']);
 

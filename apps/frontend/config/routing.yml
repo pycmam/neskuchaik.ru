@@ -1,7 +1,7 @@
 # Feed-ленты
 # ====================================================
 
-# Комментарии
+# Комментарии к чему-то
 feed_comments:
   url: /feed/comments/:id
   class: sfDoctrineRoute
@@ -10,6 +10,14 @@ feed_comments:
   requirements:
     sf_method: get
     id: \d+
+
+# Последние комментарии
+feed_last_comments:
+  url: /feed/comments
+  class: sfRequestRoute
+  params: { module: feed, action: lastComments, sf_format: atom }
+  requirements:
+    sf_method: get
 
 # Места
 feed_places:

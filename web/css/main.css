@@ -21,6 +21,7 @@ html, body {
     font-size: 9pt;
     height: 100%;
     width: 100%;
+    overflow: hidden;
 }
 
 div, ul, ol, li, p {
@@ -222,6 +223,21 @@ label {
     clear: right;
     background: #f3f3f3;
     min-width: 150px;
+    overflow-y: scroll;
+    overflow: auto;
+}
+
+#sidebar-wrap {
+    overflow: hidden;
+    padding: 10px;
+}
+
+#sidebar #content {
+    border-top: 1px solid #fdfdfd;
+}
+
+#sidebar #content .content {
+    padding: 10px 0;
 }
 
 #main-menu {
@@ -287,15 +303,6 @@ label {
 
 #auth-buttons li #loginza-all {
     width: 45px;
-}
-
-#content {
-    padding-top: 10px;
-    border-top: 1px solid #fdfdfd;
-}
-
-#content .content {
-    padding: 0;
 }
 
 .loader {
