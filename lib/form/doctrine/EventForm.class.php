@@ -21,6 +21,7 @@ class EventForm extends BaseEventForm
         $this->widgetSchema['fire_at'] = new sfWidgetFormInput();
         $this->widgetSchema['iamgoing'] = new sfWidgetFormInputCheckbox();
         $this->validatorSchema['iamgoing'] = new sfValidatorBoolean();
+        $this->validatorSchema['title']->setOption('max_length', sfConfig::get('app_event_title_max_length', 60));
 
         $this->useFields(array('title', 'icon', 'description', 'fire_at', 'iamgoing', 'geo_lat', 'geo_lng', 'place_id'));
 

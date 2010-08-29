@@ -356,6 +356,14 @@ label {
     margin-bottom: 10px;
 }
 
+#point-form .counter {
+    display: block;
+    clear: both;
+    margin-top: -5px;
+    margin-bottom: 10px;
+    font-size: 7pt;
+}
+
 #point-form #point_description,
 #point-form #point_tags,
 #point-form #point_fire_at {

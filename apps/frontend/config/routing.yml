@@ -290,7 +290,7 @@ photo:
 photo_edit:
   url: /:model/:id/upload
   class: sfDoctrineRoute
-  options: { model: Point, type: object, method_for_query: getWithOwnerCheck }
+  options: { model: Point, type: object } #, method_for_query: getWithOwnerCheck }
   params: { module: photo, action: edit }
   requirements:
     sf_method: get
@@ -300,7 +300,7 @@ photo_edit:
 point_image_upload:
   url: /point/:id/image
   class: sfDoctrineRoute
-  options: { model: Point, type: object, method_for_query: getWithOwnerCheck }
+  options: { model: Point, type: object } #, method_for_query: getWithOwnerCheck }
   params: { module: image, action: upload, prefix: point }
   requirements:
     sf_method: [post]
@@ -309,7 +309,7 @@ point_image_upload:
 point_image_primary:
   url: /point/:id/image/:image
   class: sfDoctrineRoute
-  options: { model: Point, type: object, method_for_query: getWithOwnerCheck }
+  options: { model: Point, type: object } #, method_for_query: getWithOwnerCheck }
   params: { module: image, action: primary }
   requirements:
     sf_method: [post]
@@ -319,7 +319,7 @@ point_image_primary:
 point_image_delete:
   url: /image/:id/delete
   class: sfDoctrineRoute
-  options: { model: ImagePoint, type: object }
+  options: { model: ImagePoint, type: object, method_for_query: getByOwner }
   params: { module: image, action: delete }
   requirements:
     sf_method: [post]

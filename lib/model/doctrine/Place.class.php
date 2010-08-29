@@ -15,13 +15,15 @@ class Place extends BasePlace
     /**
      * Актульаные события места
      *
+     * @param integer $max
      * @return Doctrine_Collection
      */
-    public function getActualEvents()
+    public function getActualEvents($max = false)
     {
         $q = EventTable::getInstance()->queryActive();
 
         return $q->andWhere($q->getRootAlias().'.place_id = ?', $this->getId())
+            ->limit($max)
             ->execute();
     }
 }

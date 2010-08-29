@@ -13,6 +13,11 @@ $(function(){
         minDate: '<?php echo date('d.m.Y') ?>',
         timeFormat: 'hh:mm'
     });
+    $('#point_title').charCount({
+        allowed: <?php echo sfConfig::get('app_event_title_max_length', 60) ?>,
+        warning: 5,
+        counterText: 'осталось: '
+    });
 });
 </script>
 
@@ -22,7 +27,9 @@ $(function(){
 <li class="form-item">
     <?php echo $form['title']->renderLabel('Название') ?>
     <?php echo $form['title']->renderError() ?>
-    <?php echo $form['title'] ?>
+    <?php echo $form['title']->render(array(
+        'maxlength' => sfConfig::get('app_event_title_max_length', 60),
+    )) ?>
     <?php echo $form['icon'] ?>
 </li>
 

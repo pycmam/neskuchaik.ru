@@ -4,14 +4,90 @@
   <file source-language="system" target-language="ru" datatype="plaintext" original="messages">
     <header/>
     <body>
-        <trans-unit>
-            <source>Required.</source>
-            <target>Обязательное поле.</target>
-        </trans-unit>
-        <trans-unit>
-            <source>Invalid.</source>
-            <target>Некорректно.</target>
-        </trans-unit>
+      <trans-unit>
+        <source>Required.</source>
+        <target>Это поле необходимо заполнить.</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Invalid.</source>
+        <target>Неверный.</target>
+      </trans-unit>
+      <trans-unit>
+        <source>At least %min% values must be selected (%count% values selected).</source>
+        <target>Должно быть выбранно не менее %min% значений (выбрано %count%).</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Должно быть выбранно не более %max% значений (выбрано %count%).</source>
+        <target></target>
+      </trans-unit>
+      <trans-unit>
+        <source>"%value%" does not match the date format (%date_format%).</source>
+        <target>"%value%" не соответсвует формату даты (%date_format%).</target>
+      </trans-unit>
+      <trans-unit>
+        <source>The date must be before %max%.</source>
+        <target>Дата должна быть не позже %max%.</target>
+      </trans-unit>
+      <trans-unit>
+        <source>The date must be after %min%.</source>
+        <target>Дата должна быть не раньше %min%.</target>
+      </trans-unit>
+      <trans-unit>
+        <source>The begin date must be before the end date.</source>
+        <target>Первая дата должна быть раньше второй</target>
+      </trans-unit>
+      <trans-unit>
+        <source>File is too large (maximum is %max_size% bytes).</source>
+        <target>Файл слишком большой (разрешено не более %max_size% байт).</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Invalid mime type (%mime_type%).</source>
+        <target>Не коректный тип mime (%mime_type%).</target>
+      </trans-unit>
+      <trans-unit>
+        <source>The uploaded file was only partially uploaded.</source>
+        <target>Файл был загружен не полностью.</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Missing a temporary folder.</source>
+        <target>Не найдена временная папка.</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Failed to write file to disk.</source>
+        <target>Ошибка записи на диск.</target>
+      </trans-unit>
+      <trans-unit>
+        <source>File upload stopped by extension.</source>
+        <target>Загрузка файла прервана ошибкой.</target>
+      </trans-unit>
+      <trans-unit>
+        <source>"%value%" must be at most %max%.</source>
+        <target>"%value%" - должно быть не более %max%.</target>
+      </trans-unit>
+      <trans-unit>
+        <source>"%value%" must be at least %min%.</source>
+        <target>"%value%" - должно быть не менее %min%.</target>
+      </trans-unit>
+      <trans-unit>
+        <source>"%value%" is not an integer.</source>
+        <target>"%value%" - это не число.</target>
+      </trans-unit>
+      <trans-unit>
+        <source>"%value%" is not a number.</source>
+        <target>"%value%" - это не число.</target>
+      </trans-unit>
+      <trans-unit>
+        <source>"%value%" is too long (%max_length% characters max).</source>
+        <target>"%value%" слишком много символов (должно быть не более %max_length%).</target>
+      </trans-unit>
+      <trans-unit>
+        <source>"%value%" is too short (%min_length% characters min).</source>
+        <target>"%value%" слишком мало символов (должно быть не менее %min_length%).</target>
+      </trans-unit>
+      <trans-unit>
+        <source>"%value%" does not match the time format (%time_format%).</source>
+        <target>"%value%" не соответствует формату времени (%time_format%).</target>
+      </trans-unit>
 
         <trans-unit>
           <source>Delete image</source>

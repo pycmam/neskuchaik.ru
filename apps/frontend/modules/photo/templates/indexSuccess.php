@@ -8,8 +8,8 @@
 
 <h2>Фотогалерея <?php echo $point ?></h2>
 
-<?php if ($sf_user->isAuthenticated() && $point->getUserId() == $sf_user->getGuardUser()->getId()): ?>
-    <?php echo link_to('Редактировать галерею', 'photo_edit', $point, array(
+<?php if ($sf_user->isAuthenticated()): ?>
+    <?php echo link_to($point->getUserId() == $sf_user->getGuardUser()->getId() ? 'Редактировать галерею' : 'Добавить фото', 'photo_edit', $point, array(
         'class' => 'ajax',
         'rel' => '#overlay',
         'title' => 'загрузить или удалить фото',
@@ -28,5 +28,10 @@
         </ul>
     <?php else: ?>
         <p>Фото отсутствуют.</p>
+
+        <?php if (! $sf_user->isAuthenticated()): ?>
+            <h2>Авторизуйтесь, чтобы добавлять фото.</h2>
+            <p>Для этого у нас есть куча способов ;)</p>
+        <?php endif ?>
     <?php endif ?>
 </div>

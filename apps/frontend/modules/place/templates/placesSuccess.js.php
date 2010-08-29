@@ -16,7 +16,7 @@ $(function(){
     <?php foreach($points as $i => $point): ?>
     places[<?php echo $point['id'] ?>] = new GMarker(
         new GLatLng(<?php echo $point['geo_lat'], ', ', $point['geo_lng'] ?>), {
-            title: '<?php echo str_replace("'", "\'", $point['title']) ?>',
+            title: '<?php echo str_replace(array('"', '&quot;'), array('\"', '\"'), $point['title']) ?>',
             icon: map.getIcon('<?php echo $point['icon'] ?>')
         });
 

@@ -6,7 +6,7 @@
  */
 ?>
 <script type="text/javascript">
-document.title = "<?php echo str_replace('"', '\"', $point->getTitle()) ?> | Нескучайк" ;
+document.title = "<?php echo str_replace(array('"', '&quot;'), array('\"', '\"'), $point->getTitle()) ?> | Нескучайк" ;
 
 $(function(){
     var point = new GLatLng(<?php echo $point->getGeoLat(), ', ', $point->getGeoLng() ?>);

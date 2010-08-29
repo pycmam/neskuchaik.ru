@@ -14,7 +14,7 @@
     <span><?php echo $place ?></span>
 </h2>
 
-<?php if ($count = count($events = $place->getActualEvents())): ?>
+<?php if ($count = count($events = $place->getActualEvents(sfConfig::get('app_max_events_in_infowindow', 10)))): ?>
 <div class="place-infowindow-events">
     <h3>События (<?php echo $count ?>):</h3>
     <?php foreach ($events as $event): ?>

@@ -48,7 +48,7 @@ class Point extends BasePoint
     /**
      * Возвращает главную фотку
      *
-     * @return ImageRealty
+     * @return ImagePoint
      */
     public function getImage()
     {
