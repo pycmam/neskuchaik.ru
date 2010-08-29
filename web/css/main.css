@@ -592,11 +592,16 @@ h2.title {
     padding-left: 20px;
 }
 
-.comment .desc .date {
+.comment .desc .date,
+.comment .desc .action {
     text-transform: lowercase;
     float: right;
     color: #ccc;
     font-size: 8pt;
+}
+
+.comment .desc .action {
+    margin-right: 10px;
 }
 
 .comment .text {

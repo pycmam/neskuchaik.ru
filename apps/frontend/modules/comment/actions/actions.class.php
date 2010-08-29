@@ -65,7 +65,6 @@ class commentActions extends sfActions
      */
     public function executeDelete(sfWebRequest $request)
     {
-        $request->checkCSRFProtection();
         $comment = $this->getRoute()->getObject();
         $point = $comment->getPoint();
         $comment->delete();

@@ -56,4 +56,22 @@ class frontend_commentTest extends myFunctionalTestCase
                 'comment' => $commentText,
             ), 1);
     }
+
+    public function testDelete()
+    {
+        $user = $this->authenticateUser();
+        $place = $this->helper->makePlace($user, true);
+        $comment = $this->helper->makeComment($place, $user, true);
+        $comment_restrict = $this->helper->makeComment($place, $this->helper->makeUser(true), true);
+
+        $this->browser
+            ->post($this->generateUrl('comment_delete', $comment))
+            ->with('request')->checkModuleAction('comment', 'delete')
+            ->with('response')->isStatusCode(302)
+            ->with('model')->check('Comment', array('id' => $comment->id), 0)
+            ->post($this->generateUrl('comment_delete', $comment_restrict))
+            ->with('response')->isStatusCode(404)
+            ->with('model')->check('Comment', array('id' => $comment_restrict->id), 1);
+
+    }
 }

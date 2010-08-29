@@ -5,6 +5,7 @@ all:
     remember_cookie_name:        me
 
   comments_per_page: 10
+  comments_delete_timeout: 600
   max_events_in_infowindow: 10
   event_title_max_length: 60
 

@@ -3,7 +3,7 @@
 /**
  * Комментарии
  */
-class CommentTable extends Doctrine_Table
+class CommentTable extends myBaseTable
 {
 
     /**

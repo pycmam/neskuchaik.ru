@@ -25,6 +25,27 @@ function link_to_comments($point) {
 }
 
 /**
+ * Ссылка на удаление комментария
+ *
+ * @param Comment $comment
+ */
+function link_to_comment_delete($comment, $title = null) {
+    $user = sfContext::getInstance()->getUser();
+
+    if ($user->isAuthenticated() &&
+        $user->getGuardUser()->getId() == $comment->getUserId() &&
+        $comment->hasDeletable()) {
+
+        return jq_link_to_remote($title ? $title : 'Удалить', array(
+            'method'    => 'post',
+            'url'       => url_for('comment_delete', $comment),
+            'success'   => 'jQuery("#comment-'.$comment->id.'").remove();',
+            'confirm'   => 'Вы точно хотите удалить свой комментарий?',
+        ));
+    }
+}
+
+/**
  * Ссылка на место
  *
  * @param Place $place
@@ -54,7 +75,7 @@ function link_to_place_edit($place, $title = null) {
 function link_to_place_delete($place, $title = null) {
     return link_to($title ? $title : 'Удалить', 'place_delete', array(
         'id' => $place->id,
-        '__csrf_token' => __csrf_token_value(),
+        '_csrf_token' => __csrf_token_value(),
     ), array(
         'class' => 'ajax ajax-post point-delete',
     ));
