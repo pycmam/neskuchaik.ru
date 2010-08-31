@@ -19,9 +19,10 @@ generator:
         description:      { label: Описание }
         to_frontend:      { label: Перейти на сайт }
         user_id:          { label: Юзер }
+        user:             { label: Юзер }
       list: 
         title:            Места <a href="#" onclick="jQuery('#sf_admin_bar').slideToggle('slow')">(поиск)</a>
-        display:          [_icon, title, _description, created_at, _to_frontend]
+        display:          [_icon, title, user, _description, created_at, _to_frontend]
       filter:  ~
       form:
         class:            PlaceAdminForm

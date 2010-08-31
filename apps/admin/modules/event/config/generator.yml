@@ -18,12 +18,14 @@ generator:
         icon:             { label: Значок }
         fire_at:          { label: Дата и время }
         description:      { label: Описание }
+        place_id:         { label: Место }
         place:            { label: Место }
         to_frontend:      { label: Перейти на сайт }
         user_id:          { label: Юзер }
+        user:             { label: Юзер }
       list: 
         title:            События <a href="#" onclick="jQuery('#sf_admin_bar').slideToggle('slow')">(поиск)</a>
-        display:          [_icon, title, place, _description, fire_at, _to_frontend]
+        display:          [_icon, title, place, user, _description, fire_at, _to_frontend]
         sort:             [fire_at, DESC]
       filter:  ~
       form:

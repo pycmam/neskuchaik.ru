@@ -10,11 +10,12 @@
  */
 class PlaceFormFilter extends BasePlaceFormFilter
 {
-  /**
-   * @see PointFormFilter
-   */
-  public function configure()
-  {
-    parent::configure();
-  }
+    /**
+     * @see PointFormFilter
+     */
+    public function configure()
+    {
+        parent::configure();
+        $this->useFields(array('title', 'description', 'user_id'));
+    }
 }
