@@ -1,5 +1,28 @@
+# Импорт из внешних источников
+# =============================================================================
+import:
+  url: /import
+  class: sfRequestRoute
+  params: { module: import, action: index }
+  requirements:
+    sf_method: get
+
+import_import:
+  url: /import
+  class: sfRequestRoute
+  params: { module: import, action: import }
+  requirements:
+    sf_method: post
+
+import_save:
+  url: /import/save
+  class: sfRequestRoute
+  params: { module: import, action: save }
+  requirements:
+    sf_method: post
+
 # Загрузка изображений
-# ====================================================
+# =============================================================================
 point_image_upload:
   url: /image/upload/:id
   class: sfDoctrineRoute

@@ -18,7 +18,9 @@ class EventForm extends BaseEventForm
         parent::configure();
 
         $this->widgetSchema['place_id'] = new sfWidgetFormInputHidden();
-        $this->widgetSchema['fire_at'] = new sfWidgetFormInput();
+        $this->widgetSchema['fire_at'] = new sfWidgetFormInput(array(), array(
+            'class' => 'datepicker',
+        ));
         $this->widgetSchema['iamgoing'] = new sfWidgetFormInputCheckbox();
         $this->validatorSchema['iamgoing'] = new sfValidatorBoolean();
         $this->validatorSchema['title']->setOption('max_length', sfConfig::get('app_event_title_max_length', 60));
@@ -37,7 +39,7 @@ class EventForm extends BaseEventForm
     {
         parent::updateDefaultsFromObject();
 
-        if (! $this->object->isNew()) {
+        if ($this->object && $this->object->getFireAt()) {
             $this->setDefault('fire_at', date('d.m.Y H:i', strtotime($this->object->getFireAt())));
         }
     }

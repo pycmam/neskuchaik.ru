@@ -36,6 +36,27 @@ class H
 
 
     /**
+     * Мерджит вложенные массивы в корневой добавляя префикс к ключам
+     *
+     * @param array $array
+     * @param string $prefix
+     * @return array
+     */
+    public static function simplifyArray($array, $prefix = '')
+    {
+        $result = array();
+        foreach ($array as $key => $item) {
+            if (is_array($item)) {
+                $result += self::simplifyArray($item, $prefix . $key . '_');
+            } else {
+                $result[$prefix . $key] = $item;
+            }
+        }
+        return $result;
+    }
+
+
+    /**
      * Выбрать множественную форму склонения из словаря
      *
      * @param  string $text      - ключ словаря

@@ -16,18 +16,6 @@ class EventTable extends PointTable
     }
 
     /**
-     * Добавление сортировки по дате начала
-     *
-     * @param string $alias
-     * @return Doctrine_Query
-     */
-    public function createQuery($alias = 'a')
-    {
-        return parent::createQuery($alias)
-            ->orderBy($alias . '.fire_at ASC');
-    }
-
-    /**
      * Запрос по дате
      *
      * @param $date
@@ -49,7 +37,8 @@ class EventTable extends PointTable
             ->where($alias . '.fire_at BETWEEN ? AND ?', array(
                 date('Y-m-d H:i:s', $timeFrom),
                 date('Y-m-d H:i:s', $timeTo),
-             ));
+             ))
+             ->orderBy($alias . '.fire_at ASC');;
     }
 
     /**
@@ -65,8 +54,11 @@ class EventTable extends PointTable
                 ->leftJoin('a.Comments com');
         }
 
-        return $q->andWhere($q->getRootAlias() . '.is_active = 1')
-            ->andWhere($q->getRootAlias() . '.fire_at > ?', date('Y-m-d H:i:s'));
+        $alias = $q->getRootAlias();
+
+        return $q->andWhere($alias . '.is_active = 1')
+            ->andWhere($alias . '.fire_at > ?', date('Y-m-d H:i:s'))
+            ->orderBy($alias . '.fire_at ASC');;
     }
 
     /**
@@ -87,7 +79,6 @@ class EventTable extends PointTable
      */
     public function queryFeed()
     {
-        return  $this->queryActive($q = parent::queryFeed())
-            ->orderBy($q->getRootAlias() . '.fire_at ASC');
+        return  $this->queryActive($q = parent::queryFeed());
     }
 }

@@ -47,3 +47,20 @@
 .icon-changer:hover img.selected {
     background: #d1d1d1;
 }
+
+.table-batch {
+    border: 0;
+}
+
+.table-batch tr td,
+.table-batch tr th {
+    padding: 10px 5px;
+    border: 0;
+    border-bottom: 1px solid #b2b2b2;
+    vertical-align: top;
+}
+
+.table-batch textarea {
+    width: 250px;
+    height: 70px;
+}

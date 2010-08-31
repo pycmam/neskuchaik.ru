@@ -15,15 +15,4 @@ class PlaceTable extends PointTable
         return Doctrine_Core::getTable('Place');
     }
 
-    /**
-     * Добавление сортировки по дате создания
-     *
-     * @param string $alias
-     * @return Doctrine_Query
-     */
-    public function createQuery($alias = 'a')
-    {
-        return parent::createQuery($alias)
-            ->orderBy($alias . '.created_at DESC');
-    }
 }

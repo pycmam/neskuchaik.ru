@@ -335,7 +335,7 @@ users:
     sf_method: get
 
 user_show:
-  url: /user/:username
+  url: /user/:id
   class: sfDoctrineRoute
   options: { model: sfGuardUser, type: object }
   params: { module: user, action: show }

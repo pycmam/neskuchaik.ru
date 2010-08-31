@@ -22,8 +22,9 @@ generator:
         to_frontend:      { label: Перейти на сайт }
         user_id:          { label: Юзер }
       list: 
-        title:            Места <a href="#" onclick="jQuery('#sf_admin_bar').slideToggle('slow')">(поиск)</a>
+        title:            События <a href="#" onclick="jQuery('#sf_admin_bar').slideToggle('slow')">(поиск)</a>
         display:          [_icon, title, place, _description, fire_at, _to_frontend]
+        sort:             [fire_at, DESC]
       filter:  ~
       form:
         class:            EventAdminForm

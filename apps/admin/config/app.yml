@@ -5,6 +5,13 @@ all:
     remember_cookie_name:        me
     algorithm_callable:          md5
 
+  # источники импорта
+  import:
+    sources:
+      roliks:
+        name: Расписание фильмов Камы
+        class: myRoliksImporter
+
   sf_admin_dash:
     web_dir:              /sfAdminDashPlugin
     image_dir:            /sfAdminDashPlugin/images/icons/
@@ -25,6 +32,9 @@ all:
             name:   События
             url:    event
             image:  event
+          import:
+            name:   Импорт
+            url:    import
           users:
             name:   Пользователи
             url:    sfGuardUser
