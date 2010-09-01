@@ -1,0 +1,30 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           MessageTemplate
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          message_template
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:
+        name:              { label: Название }
+        transport:         { label: Транспорт }
+        subject:           { label: Шаблон темы }
+        body:              { label: Шаблон сообщения }
+      list:
+        title:             Шаблоны уведомлений <a href="#" onclick="jQuery('#sf_admin_bar').slideToggle('slow')">(поиск)</a>
+        display:           [transport, name]
+        sort:              [name, asc]
+      filter:  ~
+      form:    ~
+      edit:
+        title:             Редактирование шаблона %%name%%
+      new:
+        title:             Добавление шаблона

@@ -1,3 +1,14 @@
+# Шаблоны уведомлений
+# =============================================================================
+message_template:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                MessageTemplate
+    module:               template
+    prefix_path:          /template
+    column:               id
+    with_wildcard_routes: true
+
 # Импорт из внешних источников
 # =============================================================================
 import:

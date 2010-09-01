@@ -130,3 +130,26 @@ Identity:
       foreign: id
       foreignAlias: Identities
       onDelete: CASCADE
+
+# Уведомления
+# =========================================================
+Message:
+  tableName:      app_messages
+  actAs:
+    Timestampable: ~
+  columns:
+    transport:    { type: enum, values: [email, icq, jabber, sms], notnull: true }
+    to:           { type: string(255), notnull: true }
+    message:      { type: string, notnull: true }
+    is_complete:  { type: boolean, notnull: true, default: 0 }
+    complete_at:  { type: timestamp }
+
+# Шаблоны уведомлений
+# =========================================================
+MessageTemplate:
+  tableName:      app_message_templates
+  columns:
+    transport:    { type: enum, values: [email, icq, jabber, sms], notnull: true }
+    name:         { type: string(255), notnull: true }
+    subject:      { type: string(255) }
+    body:         { type: string, notnull: true }

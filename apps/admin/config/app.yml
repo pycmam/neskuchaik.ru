@@ -43,6 +43,10 @@ all:
       Settings:
         name:       Настройки
         items:
+          templates:
+            name:  Шаблоны уведомлений
+            url:    message_template
+            image:  massemail
           content:
             name:   Контент
             url:    myContentAdmin

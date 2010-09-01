@@ -110,6 +110,7 @@ class ProjectConfiguration extends sfProjectConfiguration
     {
         $manager->setAttribute(Doctrine::ATTR_QUERY_CLASS, 'MyQuery');
         $manager->setAttribute(Doctrine::ATTR_USE_DQL_CALLBACKS, true);
+        $manager->setAttribute(Doctrine::ATTR_QUOTE_IDENTIFIER, true);
     }
 
 }

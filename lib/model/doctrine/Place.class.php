@@ -22,7 +22,7 @@ class Place extends BasePlace
     {
         $q = EventTable::getInstance()->queryActive();
 
-        return $q->andWhere($q->getRootAlias().'.place_id = ?', $this->getId())
+        return $q->andWhere($q->getRootAlias().'.place_id = ?', (int) $this->getId())
             ->limit($max)
             ->execute();
     }
