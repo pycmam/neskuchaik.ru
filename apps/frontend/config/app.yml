@@ -48,21 +48,34 @@ all:
   sf_rich_menu:
     # главное меню
     header:
-      index:
-        name:           Главная
-        route:          homepage
-        active_pattern: 'catalog[*];place[*];event[*]'
+      events:
+        name:           События
+        route:          event
+        active_pattern: 'event[*]'
         link_attributes: { class: ajax hl }
+      places:
+        name:           Места
+        route:          place
+        active_pattern: 'place[*]'
+        link_attributes: { class: ajax hl }
+      users:
+        name:           Люди
+        route:          users
+        active_pattern: 'user[*]'
+        link_attributes: { class: ajax hl }
+
+    # меню подвала
+    footer:
       about:
         name:           О проекте
         route:          page_about
         active_pattern: 'myContent[show@url=about]'
-        link_attributes: { class: ajax hl }
+        link_attributes: { class: overlay, rel: "#overlay" }
       contacts:
         name:           Контакты
         route:          page_contacts
         active_pattern: 'myContent[show@url=contacts]'
-        link_attributes: { class: ajax hl }
+        link_attributes: { class: overlay, rel: "#overlay" }
 
     # навигация по событиям
     events:

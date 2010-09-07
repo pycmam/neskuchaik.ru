@@ -14,9 +14,8 @@
     <span><?php echo $place ?></span>
 </h2>
 
-<?php if ($count = count($events = $place->getActualEvents(sfConfig::get('app_max_events_in_infowindow', 10)))): ?>
+<?php if (count($events = $place->getActualEvents(sfConfig::get('app_max_events_in_infowindow', 10)))): ?>
 <div class="place-infowindow-events">
-    <h3>События (<?php echo $count ?>):</h3>
     <?php foreach ($events as $event): ?>
     <div class="item">
         <?php echo link_to($event, 'event_show', $event, array('class' => 'ajax')) ?>
@@ -28,6 +27,6 @@
 
 <div class="point-infowindow-desc">
     <?php echo link_to_user($place->getUser()) ?>
-    <?php echo link_to_comments($place) ?>
-    <?php echo link_to_photos($place) ?>
+    <?php echo link_to_comments($place, sprintf('комментарии (%d)', $place->COMMENTS_COUNT)) ?>
+    <?php echo link_to_photos($place, sprintf('фото (%d)', $place->IMAGES_COUNT)) ?>
 </div>

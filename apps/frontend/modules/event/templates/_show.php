@@ -51,6 +51,6 @@ $move = isset($move) ? $move : true;
 <?php echo link_to_event_edit($event) ?>
 -->
 <?php echo link_to_user($event->getUser()) ?>
-<?php echo link_to_comments($event) ?>
-<?php echo link_to_photos($event) ?>
+<?php echo link_to_comments($event, sprintf('комментарии (%d)', $event->COMMENTS_COUNT)) ?>
+<?php echo link_to_photos($event, sprintf('фото (%d)', $event->IMAGES_COUNT)) ?>
 

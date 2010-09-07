@@ -39,7 +39,7 @@ class EventForm extends BaseEventForm
     {
         parent::updateDefaultsFromObject();
 
-        if ($this->object && $this->object->getFireAt()) {
+        if ($this->object->exists()) {
             $this->setDefault('fire_at', date('d.m.Y H:i', strtotime($this->object->getFireAt())));
         }
     }

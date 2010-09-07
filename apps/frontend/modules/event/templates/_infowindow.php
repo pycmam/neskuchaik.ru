@@ -13,6 +13,6 @@
 
 <div class="point-infowindow-desc">
     <?php echo link_to_user($event->getUser()) ?>
-    <?php echo link_to_comments($event) ?>
-    <?php echo link_to_photos($event) ?>
+    <?php echo link_to_comments($event, sprintf('комментарии (%d)', $event->COMMENTS_COUNT)) ?>
+    <?php echo link_to_photos($event, sprintf('фото (%d)', $event->IMAGES_COUNT)) ?>
 </div>

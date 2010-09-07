@@ -57,10 +57,17 @@ feed_user_events:
 
 # Места
 # ====================================================
+place:
+  url: /places
+  class: sfRequestRoute
+  params: { module: place, action: index }
+  requirements:
+    sf_method: get
+
 place_show:
   url: /place/:id
   class: sfDoctrineRoute
-  options: { model: Place, type: object }
+  options: { model: Place, type: object, method_for_query: getWithCount }
   params: { module: place, action: show }
   requirements:
     sf_method: get
@@ -101,7 +108,7 @@ place_update:
 place_follow:
   url: /place/:id/follow
   class: sfDoctrineRoute
-  options: { model: Place, type: object }
+  options: { model: Place, type: object, method_for_query: getWithCount }
   params: { module: place, action: follow }
   requirements:
     sf_method: [post]
@@ -110,7 +117,7 @@ place_follow:
 place_unfollow:
   url: /place/:id/unfollow
   class: sfDoctrineRoute
-  options: { model: Place, type: object }
+  options: { model: Place, type: object, method_for_query: getWithCount }
   params: { module: place, action: unfollow }
   requirements:
     sf_method: [post]
@@ -126,7 +133,7 @@ place_delete:
     id: \d+
 
 place_js:
-  url: /places.:sf_format
+  url: /points
   class: sfRequestRoute
   params: { module: place, action: places, sf_format: js }
   requirements:
@@ -154,7 +161,7 @@ event_date_datomorrow:
 event_show:
   url: /event/:id
   class: sfDoctrineRoute
-  options: { model: Event, type: object }
+  options: { model: Event, type: object, method_for_query: getWithCount }
   params: { module: event, action: show }
   requirements:
     sf_method: get
@@ -195,7 +202,7 @@ event_update:
 event_follow:
   url: /event/:id/follow
   class: sfDoctrineRoute
-  options: { model: Event, type: object }
+  options: { model: Event, type: object, method_for_query: getWithCount }
   params: { module: event, action: follow }
   requirements:
     sf_method: [post]
@@ -204,7 +211,7 @@ event_follow:
 event_unfollow:
   url: /event/:id/unfollow
   class: sfDoctrineRoute
-  options: { model: Event, type: object }
+  options: { model: Event, type: object, method_for_query: getWithCount }
   params: { module: event, action: unfollow }
   requirements:
     sf_method: [post]

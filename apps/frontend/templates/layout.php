@@ -35,9 +35,6 @@
 </head>
 <body onunload="GUnload()">
     <div id="map-layout">
-        <div id="map">
-            <?php include_partial('global/map') ?>
-        </div>
 
         <div id="sidebar">
             <div id="sidebar-wrap">
@@ -76,7 +73,15 @@
                     </div>
                     <div class="loader"></div>
                 </div>
+
+                <ul id="footer-menu" class="menu">
+                    <?php include_component('sfRichMenu', 'menu', array('menu' => 'footer')) ?>
+                </ul>
             </div>
+        </div>
+
+        <div id="map">
+            <?php include_partial('global/map') ?>
         </div>
     </div>
 

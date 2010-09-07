@@ -19,7 +19,7 @@
 <?php endif ?>
 
 <?php echo jq_form_remote_tag(array(
-    'url' => 'event_create',
+    'url' => url_for('event_create', array('place' => $sf_params->get('place'))),
     'update' => 'content .content',
 ), array(
     'id' => 'point-form',

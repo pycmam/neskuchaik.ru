@@ -14,10 +14,8 @@
     <p class="point-desc"><?php echo nl2br($description) ?></p>
 <?php endif ?>
 
-<?php if ($count = count($events = $place->getActualEvents())): ?>
+<?php if (count($events = $place->getActualEvents())): ?>
 <div class="place-events">
-    <h3>События (<?php echo $count ?>):</h3>
-
     <?php include_partial('event/list', array(
         'events' => $events,
     )) ?>
@@ -35,5 +33,5 @@
 <?php echo link_to_place_edit($place) ?>
 -->
 <?php echo link_to_user($place->getUser()) ?>
-<?php echo link_to_comments($place) ?>
-<?php echo link_to_photos($place) ?>
+<?php echo link_to_comments($place, sprintf('комментарии (%d)', $place->COMMENTS_COUNT)) ?>
+<?php echo link_to_photos($place, sprintf('фото (%d)', $place->IMAGES_COUNT)) ?>

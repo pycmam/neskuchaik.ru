@@ -101,6 +101,12 @@ class eventActions extends sfActions
             $event = $form->save();
 
             if ($request->isXmlHttpRequest()) {
+
+                $event = EventTable::getInstance()
+                    ->queryWithCount(null, 'e')
+                    ->where('e.id = ?', $event->id)
+                    ->fetchOne();
+
                 return $this->renderPartial('event/show', array('event' => $event));
             } else {
                 return $this->redirect('event_show', $event);

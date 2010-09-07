@@ -10,6 +10,10 @@ class placeActions extends sfActions
      */
     public function executeIndex()
     {
+        $this->places = PlaceTable::getInstance()
+            ->queryWithCount(null, 'p')
+            ->execute()
+            ->getData();
     }
 
     /**
@@ -78,6 +82,11 @@ class placeActions extends sfActions
             $place = $form->save();
 
             if ($request->isXmlHttpRequest()) {
+                $place = PlaceTable::getInstance()
+                    ->queryWithCount(null, 'e')
+                    ->where('e.id = ?', $place->id)
+                    ->fetchOne();
+
                 return $this->renderPartial('place/show', array('place' => $place));
             } else {
                 return $this->redirect('place_show', $place);

@@ -17,8 +17,8 @@ function link_to_user($user) {
  *
  * @param Point $point
  */
-function link_to_comments($point) {
-    return link_to('<span>комментарии</span>', 'comment', $point, array(
+function link_to_comments($point, $title = 'комментарии') {
+    return link_to('<span>'.$title.'</span>', 'comment', $point, array(
         'class' => 'overlay point-comments',
         'rel' => '#overlay',
     ));
@@ -61,8 +61,8 @@ function link_to_place($place, $title = null) {
  *
  * @param Place $place
  */
-function link_to_place_edit($place, $title = null) {
-    return link_to($title ? $title : 'Правка', 'place_edit', $place, array(
+function link_to_place_edit($place, $title = 'Правка') {
+    return link_to($title, 'place_edit', $place, array(
         'class' => 'ajax point-edit',
     ));
 }
@@ -72,8 +72,8 @@ function link_to_place_edit($place, $title = null) {
  *
  * @param Place $place
  */
-function link_to_place_delete($place, $title = null) {
-    return link_to($title ? $title : 'Удалить', 'place_delete', array(
+function link_to_place_delete($place, $title = 'Удалить') {
+    return link_to($title, 'place_delete', array(
         'id' => $place->id,
         '_csrf_token' => __csrf_token_value(),
     ), array(
@@ -97,8 +97,8 @@ function link_to_event($event, $title = null) {
  *
  * @param Event $event
  */
-function link_to_event_edit($event, $title = null) {
-    return link_to($title ? $title : 'Правка', 'event_edit', $event, array(
+function link_to_event_edit($event, $title = 'Правка') {
+    return link_to($title, 'event_edit', $event, array(
         'class' => 'ajax point-edit',
     ));
 }
@@ -108,8 +108,8 @@ function link_to_event_edit($event, $title = null) {
  *
  * @param Event $event
  */
-function link_to_event_delete($event, $title = null) {
-    return link_to($title ? $title : 'Удалить', 'event_delete', array(
+function link_to_event_delete($event, $title = 'Удалить') {
+    return link_to($title, 'event_delete', array(
         'id' => $event->id,
         '__csrf_token' => __csrf_token_value(),
     ), array(
@@ -122,8 +122,8 @@ function link_to_event_delete($event, $title = null) {
  *
  * @param Point $point
  */
-function link_to_photos($point) {
-    return link_to('<span>фотографии</span>', 'photo', $point, array(
+function link_to_photos($point, $title = 'Фото') {
+    return link_to('<span>'.$title.'</span>', 'photo', $point, array(
         'class' => 'overlay point-photos',
         'rel' => '#overlay',
     ));

@@ -3,7 +3,7 @@ default:
     content-type: text/html
 
   metas:
-    title: НеСкучайк! Добавляй интересные места и предстоящие события!
+    title: НескуЧайк! Добавляй интересные места и предстоящие события!
     description: Интересные места и события прямо на карте города
 
   stylesheets:
@@ -19,7 +19,7 @@ default:
 #    - jquery-ui/jquery-ui.timepicker.min.js
 #    - jquery-ui/i18n/ui.datepicker-ru.js
 #    - jquery.cookie.js
-#    - map.js
+#    - map.js 
 #    - navigate.js
 
   has_layout:     true

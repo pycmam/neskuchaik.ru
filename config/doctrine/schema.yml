@@ -139,10 +139,19 @@ Message:
     Timestampable: ~
   columns:
     transport:    { type: enum, values: [email, icq, jabber, sms], notnull: true }
-    to:           { type: string(255), notnull: true }
+    user_id:      { type: integer, notnull: true }
     message:      { type: string, notnull: true }
+    is_urgent:    { type: boolean, notnull: true, default: 0 }
     is_complete:  { type: boolean, notnull: true, default: 0 }
     complete_at:  { type: timestamp }
+
+  relations:
+    User:
+      class: sfGuardUser
+      local: user_id
+      foreign: id
+      onDelete: CASCADE
+ 
 
 # Шаблоны уведомлений
 # =========================================================

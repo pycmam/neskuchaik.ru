@@ -33,6 +33,41 @@ class PointTable extends myBaseTable
             ->orWhere(sprintf('(%1$s.model = ? AND %1$s.fire_at > NOW() AND %1$s.place_id IS NULL)', $alias), 'event');
     }
 
+
+    /**
+     * Запрос с подсчетом количества фото и комментов
+     *
+     * @param Doctrine_Query $q
+     * @param string $alias
+     * @return Doctrine_Query
+     */
+    public function queryWithCount(Doctrine_Query $q = null, $alias = 'a')
+    {
+        if (is_null($q)) {
+            $q = $this->createQuery($alias);
+        }
+
+        $alias = $q->getRootAlias();
+
+        return $q->select($alias . '.*, COUNT(DISTINCT img.id) as IMAGES_COUNT, COUNT(DISTINCT com.id) as COMMENTS_COUNT')
+            ->leftJoin($alias . '.Images img')
+            ->leftJoin($alias . '.Comments com')
+            ->groupBy($alias . '.id');
+    }
+
+    /**
+     * Выборка с подсчетом количества фото и комментов
+     *
+     * @param Doctrine_Query $q
+     * @param string $alias
+     * @return Doctrine_Сollection
+     */
+    public function getWithCount(Doctrine_Query $q = null, $alias = 'a')
+    {
+        return $this->queryWithCount($q, $alias)
+            ->execute();
+    }
+
     /**
      * Запрос для формирования feed-ленты
      *

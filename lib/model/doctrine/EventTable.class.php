@@ -32,13 +32,15 @@ class EventTable extends PointTable
 
         $timeTo = strtotime($date . ' 23:59:59');
 
-        return $this->createQuery($alias)
+        return $this->queryWithCount(null, 'a')
+            ->select($alias . '.*, pl.*, COUNT(DISTINCT img.id) IMAGES_COUNT, COUNT(DISTINCT com.id) COMMENTS_COUNT')
             ->leftJoin($alias . '.Place pl')
             ->where($alias . '.fire_at BETWEEN ? AND ?', array(
                 date('Y-m-d H:i:s', $timeFrom),
                 date('Y-m-d H:i:s', $timeTo),
-             ))
-             ->orderBy($alias . '.fire_at ASC');;
+            ))
+            ->groupBy($alias . '.id')
+            ->orderBy($alias . '.fire_at ASC');
     }
 
     /**
@@ -50,8 +52,7 @@ class EventTable extends PointTable
     public function queryActive(Doctrine_Query $q = null)
     {
         if (is_null($q)) {
-            $q = $this->createQuery('a')
-                ->leftJoin('a.Comments com');
+            $q = $this->createQuery('a');
         }
 
         $alias = $q->getRootAlias();
