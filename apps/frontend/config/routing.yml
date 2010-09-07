@@ -380,9 +380,16 @@ loginza_auth:
 profile:
   url: /my
   class: sfRequestRoute
-  params: { module: loginza, action: profile }
+  params: { module: user, action: edit }
   requirements:
     sf_method: get
+
+profile_update:
+  url: /my
+  class: sfRequestRoute
+  params: { module: user, action: update }
+  requirements:
+    sf_method: post
 
 # Выход
 # ====================================================

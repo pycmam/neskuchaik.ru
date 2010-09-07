@@ -8,7 +8,7 @@ class Migration025_sfGuardUser_addContactsColumn extends Doctrine_Migration_Base
     {
         $this->addColumn('sf_guard_user', 'icq', 'string', 15);
         $this->addColumn('sf_guard_user', 'jabber', 'string', 255);
-        $this->addColumn('sf_guard_user', 'phone', 'string', 10);
+        $this->addColumn('sf_guard_user', 'phone', 'string', 12);
 
         $this->addColumn('sf_guard_user', 'notify_email', 'boolean', array(
             'notnull' => true,

@@ -57,23 +57,6 @@ class loginzaActions extends sfActions
         $this->setTemplate('signup');
     }
 
-
-    /**
-     * Профиль
-     */
-    public function executeProfile()
-    {
-    }
-
-
-    /**
-     * Сохранить профиль
-     */
-    public function executeUpdate(sfWebRequest $request)
-    {
-    }
-
-
     /**
      * Loginza TokenUrl
      */

@@ -6,7 +6,7 @@
  */
 ?>
 
-<h2>Ваш профиль</h2>
+<h2>Создание профиля</h2>
 
 <?php echo jq_form_remote_tag(array(
     'url' => 'loginza_create',

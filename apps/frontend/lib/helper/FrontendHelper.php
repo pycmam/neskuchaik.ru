@@ -13,6 +13,17 @@ function link_to_user($user) {
 }
 
 /**
+ * Ссылка на редактирование своего профиля
+ */
+function link_to_profile($title) {
+    return link_to($title, 'profile', array(), array(
+        'class' => 'overlay',
+        'rel' => '#overlay',
+        'title' => 'редактировать профиль',
+    ));
+}
+
+/**
  * Ссылка на комментарии
  *
  * @param Point $point

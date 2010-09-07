@@ -25,4 +25,30 @@ class userActions extends sfActions
     {
         $this->user = $this->getRoute()->getObject();
     }
+
+
+    /**
+     * Редактирование профиля
+     */
+    public function executeEdit()
+    {
+        $this->user = $this->getUser()->getGuardUser();
+        $this->form = new UserForm($this->user);
+    }
+
+    /**
+     * Обновление профиля
+     */
+    public function executeUpdate(sfWebRequest $request)
+    {
+        $this->executeEdit();
+        $this->form->bind($request->getParameter($this->form->getName()));
+        if ($this->form->isValid()) {
+            $this->form->save();
+
+            $this->success = true;
+        }
+
+        $this->setTemplate('edit');
+    }
 }

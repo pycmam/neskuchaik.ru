@@ -48,7 +48,7 @@
                     <div id="account">
                         <?php if ($sf_user->isAuthenticated()): ?>
                             <div id="actions">
-                                Привет, <?php echo $sf_user->getGuardUser()->getUsername() ?>!
+                                Привет, <?php echo link_to_profile($sf_user->getGuardUser()->getUsername()) ?>
                                 [ <strong><?php echo link_to('выйти', 'signout') ?></strong> ]
 
                                 <?php echo link_to('<span>отметить место</span>', 'place_new', array(), array(

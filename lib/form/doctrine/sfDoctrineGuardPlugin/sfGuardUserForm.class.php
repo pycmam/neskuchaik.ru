@@ -16,7 +16,12 @@ class sfGuardUserForm extends PluginsfGuardUserForm
             'max_length' => 255,
         ));
 
-        $this->useFields(array('username', 'email_address', 'first_name', 'last_name'));
+        $this->widgetSchema->setHelps(array(
+            'phone' => 'В формате +7...',
+        ));
+
+        $this->useFields(array('username', 'email_address', 'first_name', 'last_name',
+            'icq', 'jabber', 'phone'));
 
         $this->widgetSchema->setNameFormat('user[%s]');
     }
